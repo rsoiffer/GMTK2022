@@ -25,4 +25,12 @@ public class Door : MonoBehaviour
             LevelManager.Instance.ToNextLevel();
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            LevelManager.Instance.ToNextLevel();
+        }
+    }
 }
