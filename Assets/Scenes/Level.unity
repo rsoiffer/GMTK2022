@@ -154,8 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 734104265386178832, guid: 8497b660071e952438628733f23af907, type: 3}
   wall: {fileID: 6357149376674065373, guid: dfbd6a4cdade13a48b0ecbae4fd31aa8, type: 3}
+  water: {fileID: 6357149376674065373, guid: af32ef3f2a5382d4fa0b5e3a0350fba5, type: 3}
   tree: {fileID: 537806512226338189, guid: 9a5d6ee239f0b1c4fb091fb210693dc7, type: 3}
   grass: {fileID: 537806512226338189, guid: 6a884e98f60f8ff4b85aeca3f0b419ef, type: 3}
+  pebble: {fileID: 6357149376674065373, guid: 2b61de09aae9a5e449a7b8e4dd760fcb, type: 3}
   door: {fileID: 6357149376674065373, guid: 50858c5f881da0847a037fc6710eac3a, type: 3}
   enemy: {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
   width: 100
