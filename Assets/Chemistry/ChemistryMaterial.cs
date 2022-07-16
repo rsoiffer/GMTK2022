@@ -9,7 +9,7 @@ using UnityEngine;
 public class ChemistryMaterial : MonoBehaviour
 {
     // Throwing around property ideas ¯\_(ツ)_/¯
-    public bool Flammable { get; set; }
+    public bool Flammable;
     
     // Events for element interactions
     public delegate void ElementReaction(ChemistryElement element);

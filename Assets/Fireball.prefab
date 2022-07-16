@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1013495857525175368}
   - component: {fileID: 1013495857525175367}
   - component: {fileID: -3827367656520432887}
+  - component: {fileID: 4358079816037069110}
   m_Layer: 7
   m_Name: Fireball
   m_TagString: Untagged
@@ -140,6 +141,18 @@ MonoBehaviour:
   damage: 1
   detachOnDeath: {fileID: 6802655278923928657}
   detachLifetime: 5
+--- !u!114 &4358079816037069110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013495857525175366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5620b5fb4c08fb4d99e2472fe677ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1334229266034812561
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ChemistryFire : ChemistryElement
+public class ChemistryFire : ChemistryElement
 {
     public override void InteractWith(ChemistryMaterial material)
     {
