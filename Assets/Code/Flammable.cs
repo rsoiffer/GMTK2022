@@ -21,6 +21,10 @@ public class Flammable : MonoBehaviour
                 fireTimer = maxFireDuration;
             }
         }
+        else if (col.gameObject.CompareTag("Water Element") && fireTimer > 0)
+        {
+            fireTimer = 0;
+        }
     }
 
     private void Update()
