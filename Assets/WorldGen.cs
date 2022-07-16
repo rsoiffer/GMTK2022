@@ -14,6 +14,7 @@ public class WorldGen : MonoBehaviour
     public float treeChance = .01f;
     public float grassChance = .5f;
     public int numEnemies = 10;
+    public int numExtraEnemiesPerLevel = 5;
 
     private GameObject[,] tiles;
     private List<GameObject> allEnemies = new();
@@ -55,7 +56,8 @@ public class WorldGen : MonoBehaviour
 
         while (!TrySpawn(player, Random.Range(1, width), Random.Range(1, height))) ;
         while (!TrySpawn(door, Random.Range(1, width), Random.Range(1, height))) ;
-        for (int i = 0; i < numEnemies; i++)
+        var currentNumEnemies = numEnemies + numExtraEnemiesPerLevel * LevelManager.Instance.levelNum;
+        for (int i = 0; i < currentNumEnemies; i++)
         {
             GameObject newEnemy = null;
             while (newEnemy == null)

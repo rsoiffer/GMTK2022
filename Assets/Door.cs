@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            // Win level
+            LevelManager.Instance.ToNextLevel();
         }
     }
 }

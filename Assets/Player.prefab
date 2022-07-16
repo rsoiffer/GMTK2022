@@ -258,4 +258,4 @@ MonoBehaviour:
   targetSpeed: 5
   accelRate: 15
   fireball: {fileID: 1013495857525175366, guid: 9468c648e4dd726418bc76a9aa06adfc, type: 3}
-  shootSpeed: 20
+  shootSpeed: 10
