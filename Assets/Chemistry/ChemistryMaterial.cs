@@ -13,17 +13,35 @@ public class ChemistryMaterial : MonoBehaviour
     
     // Events for element interactions
     public delegate void ElementReaction(ChemistryElement element);
-    public event ElementReaction FireInteraction;
+    public event ElementReaction ElementAdded;
+    public event ElementReaction ElementRemoved;
+    
+    public void OnElementAdd(ChemistryElement element)
+    {
+        print("Element added");
+        if (ElementAdded != null)
+        {
+            ElementAdded(element);
+        }
+    }
+    
+    public void OnElementRemove(ChemistryElement element)
+    {
+        if (ElementRemoved != null)
+        {
+            ElementRemoved(element);
+        }
+    }
     
     private void OnCollisionEnter2D(Collision2D other)
     {
         ChemistryElement element = other.gameObject.GetComponent<ChemistryElement>();
         if (element)
         {
-            //if (element is Fire)
-            {
-                
-            }
+            // if (element is ChemistryFire)
+            // {
+            //     FireInteraction(element);
+            // }
         }
     }
 }

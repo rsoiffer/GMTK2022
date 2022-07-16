@@ -8,7 +8,7 @@ public class ChemistryFire : ChemistryElement
     {
         if (material.Flammable)
         {
-            print("Burn!");
+            material.gameObject.AddComponent<ChemistryFire>();
         }
     }
     

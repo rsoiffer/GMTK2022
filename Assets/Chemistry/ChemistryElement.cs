@@ -10,8 +10,29 @@ using UnityEngine;
 
 public abstract class ChemistryElement : MonoBehaviour
 {
+    // The material of the object that has this element. Used to make it emit events.
+    private ChemistryMaterial _material;
+    
     public abstract void InteractWith(ChemistryMaterial material);
     public abstract void InteractWith(ChemistryElement element);
+    
+    void Start()
+    {
+        _material = GetComponent<ChemistryMaterial>();
+        
+        if (_material)
+        {
+            _material.OnElementAdd(this);
+        }
+    }
+    
+    void OnDestroy()
+    {
+        if (_material)
+        {
+            _material.OnElementRemove(this);
+        }
+    }
     
     private void OnCollisionEnter2D(Collision2D other)
     {
