@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,8 +6,8 @@ public class Player : MonoBehaviour
     public float targetSpeed;
     public float accelRate;
 
-    public GameObject fireball;
-    public float shootSpeed;
+    public List<GameObject> abilities;
+    private int currentAbility = 0;
 
     private Rigidbody2D myRigidbody2D;
 
@@ -17,14 +18,19 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            var newFireball = Instantiate(fireball);
-            newFireball.transform.position = transform.position;
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var toMouse = mousePos - transform.position;
-            toMouse.z = 0;
-            newFireball.GetComponent<Rigidbody2D>().velocity = shootSpeed * toMouse.normalized;
+            currentAbility = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentAbility = 1;
+        }
+
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            abilities[i].SetActive(i == currentAbility);
         }
     }
 
