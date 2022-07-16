@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 6140050845009847467}
   m_Layer: 7
   m_Name: Damage Area
-  m_TagString: Untagged
+  m_TagString: Fire Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

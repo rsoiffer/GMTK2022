@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2135840301508749207}
   - component: {fileID: -651676100879542168}
   - component: {fileID: 3022843181336514913}
+  - component: {fileID: -8128266458098623750}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -136,6 +137,23 @@ MonoBehaviour:
   spreadFireChance: 0.05
   maxFireDuration: 5
   fireDPS: 0.5
+--- !u!114 &-8128266458098623750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537806512226338189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f79f2086615254db4937a8e75c568e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 544ce83ed4cd5aa49949593f94d07058, type: 3}
+  - {fileID: 21300000, guid: 0a6d0835ea6939147a6ae228438592d4, type: 3}
+  - {fileID: 21300000, guid: 79a2909d044851c4fb867e824ba8d677, type: 3}
+  - {fileID: 21300000, guid: 6ae810fb0a9041e43aa222f6504ea0d8, type: 3}
 --- !u!1 &1037043064940605918
 GameObject:
   m_ObjectHideFlags: 0
