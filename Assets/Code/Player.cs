@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,11 +6,32 @@ public class Player : MonoBehaviour
     public float targetSpeed;
     public float accelRate;
 
+    public List<GameObject> abilities;
+    private int currentAbility = 0;
+
     private Rigidbody2D myRigidbody2D;
 
     private void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentAbility = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentAbility = 1;
+        }
+
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            abilities[i].SetActive(i == currentAbility);
+        }
     }
 
     private void FixedUpdate()

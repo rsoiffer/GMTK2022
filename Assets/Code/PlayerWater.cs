@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class PlayerFire : MonoBehaviour
+public class PlayerWater : MonoBehaviour
 {
-    public GameObject fireball;
+    public GameObject waterball;
     public float shootSpeed;
 
     private Vector2 ToMouse()
@@ -16,9 +16,9 @@ public class PlayerFire : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            var newFireball = Instantiate(fireball);
-            newFireball.transform.position = transform.position;
-            newFireball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
+            var newWaterball = Instantiate(waterball);
+            newWaterball.transform.position = transform.position;
+            newWaterball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
         }
     }
 }
