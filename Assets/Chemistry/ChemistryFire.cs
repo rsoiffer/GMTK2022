@@ -6,7 +6,10 @@ public class ChemistryFire : ChemistryElement
 {
     public override void InteractWith(ChemistryMaterial material)
     {
-        
+        if (material.Flammable)
+        {
+            print("Burn!");
+        }
     }
     
     public override void InteractWith(ChemistryElement element)

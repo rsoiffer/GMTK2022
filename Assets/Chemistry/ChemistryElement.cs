@@ -13,7 +13,7 @@ public abstract class ChemistryElement : MonoBehaviour
     public abstract void InteractWith(ChemistryMaterial material);
     public abstract void InteractWith(ChemistryElement element);
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         ChemistryElement element = other.gameObject.GetComponent<ChemistryElement>();
         if (element)

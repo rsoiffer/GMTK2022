@@ -15,7 +15,7 @@ public class ChemistryMaterial : MonoBehaviour
     public delegate void ElementReaction(ChemistryElement element);
     public event ElementReaction FireInteraction;
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         ChemistryElement element = other.gameObject.GetComponent<ChemistryElement>();
         if (element)
