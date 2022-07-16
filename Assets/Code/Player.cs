@@ -18,15 +18,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentAbility = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentAbility = 1;
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) currentAbility = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) currentAbility = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) currentAbility = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) currentAbility = 3;
 
         for (int i = 0; i < abilities.Count; i++)
         {
@@ -37,25 +32,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         var targetVel = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            targetVel += Vector2.up;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            targetVel += Vector2.left;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            targetVel += Vector2.down;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            targetVel += Vector2.right;
-        }
+        if (Input.GetKey(KeyCode.W)) targetVel += Vector2.up;
+        if (Input.GetKey(KeyCode.A)) targetVel += Vector2.left;
+        if (Input.GetKey(KeyCode.S)) targetVel += Vector2.down;
+        if (Input.GetKey(KeyCode.D)) targetVel += Vector2.right;
 
         if (targetVel.magnitude > 1e-3)
         {
