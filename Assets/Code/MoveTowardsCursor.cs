@@ -16,7 +16,12 @@ public class MoveTowardsCursor : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             transform.position = Vector3.SmoothDamp(transform.position, GetCursorWorldPos(), ref currVelocity, smoothTime, maxSpeed, Time.deltaTime);
-        }        
+        }
+        if (Input.GetMouseButton(1))
+        {
+            var targetVec = GetCursorWorldPos() - transform.position;
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, targetVec) * Quaternion.Euler(0, 0, 90);
+        }
     }
 
     Vector3 GetCursorWorldPos()
