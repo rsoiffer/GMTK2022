@@ -2,8 +2,8 @@
 
 public class PlayerWater : MonoBehaviour
 {
-    public GameObject waterball;
-    public float shootSpeed;
+    public GameObject waterStreamParticles;
+    public GameObject waterStreamDamageArea;
 
     private Vector2 ToMouse()
     {
@@ -14,12 +14,18 @@ public class PlayerWater : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        var waterStreamActive = Input.GetMouseButton(0);
+
+        waterStreamParticles.transform.rotation = Quaternion.Euler(0, 0,
+            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+        waterStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
+            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+
+        waterStreamDamageArea.SetActive(waterStreamActive);
+        foreach (var particles in waterStreamParticles.GetComponentsInChildren<ParticleSystem>())
         {
-            var newWaterball = Instantiate(waterball);
-            newWaterball.transform.position = transform.position;
-            newWaterball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
-            newWaterball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
+            var emission = particles.emission;
+            emission.enabled = waterStreamActive;
         }
     }
 }
