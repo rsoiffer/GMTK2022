@@ -5,27 +5,11 @@ public class Player : MonoBehaviour
     public float targetSpeed;
     public float accelRate;
 
-    public GameObject fireball;
-    public float shootSpeed;
-
     private Rigidbody2D myRigidbody2D;
 
     private void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            var newFireball = Instantiate(fireball);
-            newFireball.transform.position = transform.position;
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var toMouse = mousePos - transform.position;
-            toMouse.z = 0;
-            newFireball.GetComponent<Rigidbody2D>().velocity = shootSpeed * toMouse.normalized;
-        }
     }
 
     private void FixedUpdate()
