@@ -16,15 +16,10 @@ public class EnemyMovement : MonoBehaviour
         enemyRigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
-        direction = (playerPos- enemyRigidbody.position);
-        direction.Normalize();
-    }
-    
     void FixedUpdate()
     {
+        direction = (playerPos- enemyRigidbody.position);
+        direction.Normalize();
         moveCharacter(direction);
     }
 
