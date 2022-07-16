@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class ChemistryMaterial : MonoBehaviour
 {
-    // Throwing around property ideas ¯\_(ツ)_/¯
-    public bool Flammable;
+    public bool Heatable;
     
     // Events for element interactions
     public delegate void ElementReaction(ChemistryElement element);

@@ -6,7 +6,7 @@ public class ChemistryFire : ChemistryElement
 {
     public override void InteractWith(ChemistryMaterial material)
     {
-        if (material.Flammable)
+        if (material.Heatable)
         {
             material.gameObject.AddComponent<ChemistryFire>();
         }
