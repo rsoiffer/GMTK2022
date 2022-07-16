@@ -19,6 +19,7 @@ public class PlayerWater : MonoBehaviour
             var newWaterball = Instantiate(waterball);
             newWaterball.transform.position = transform.position;
             newWaterball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
+            newWaterball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
         }
     }
 }
