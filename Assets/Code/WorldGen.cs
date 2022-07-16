@@ -10,8 +10,10 @@ public class WorldGen : MonoBehaviour
     public GameObject door;
     public GameObject enemy;
 
-    [Header("Generation Settings")] public int width = 20, height = 20;
-    public float treeChance = .01f;
+    [Header("Generation Settings")] public int width = 20;
+    public int height = 20;
+    public float treeChance = .1f;
+    public float treeChanceIncrease = .05f;
     public float grassChance = .5f;
     public int numEnemies = 10;
     public int numExtraEnemiesPerLevel = 5;
@@ -24,6 +26,7 @@ public class WorldGen : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        int seed = Random.Range(0, 1000);
 
         tiles = new GameObject[width + 1, height + 1];
         for (int x = 0; x <= width; x++)
@@ -42,12 +45,15 @@ public class WorldGen : MonoBehaviour
         {
             for (int y = 1; y < height; y++)
             {
-                if (Random.value < treeChance)
+                var distToCenter = new Vector2(x - .5f * width, y - .5f * height).magnitude;
+                var newTreeChance = treeChance + distToCenter * treeChanceIncrease;
+
+                if (NoiseHelper.FBM(x, y, 2, .2f, seed) < newTreeChance)
                 {
                     TrySpawn(tree, x, y);
                 }
 
-                if (Random.value < grassChance)
+                if (NoiseHelper.FBM(x, y, 2, .2f, seed + 10) < grassChance)
                 {
                     TrySpawn(grass, x, y);
                 }

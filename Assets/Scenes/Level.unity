@@ -158,9 +158,10 @@ MonoBehaviour:
   grass: {fileID: 537806512226338189, guid: 6a884e98f60f8ff4b85aeca3f0b419ef, type: 3}
   door: {fileID: 6357149376674065373, guid: 50858c5f881da0847a037fc6710eac3a, type: 3}
   enemy: {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
-  width: 20
-  height: 20
+  width: 100
+  height: 100
   treeChance: 0.1
+  treeChanceIncrease: 0.05
   grassChance: 0.5
   numEnemies: 1
   numExtraEnemiesPerLevel: 1
