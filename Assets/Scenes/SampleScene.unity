@@ -157,10 +157,12 @@ MonoBehaviour:
   tree: {fileID: 537806512226338189, guid: 9a5d6ee239f0b1c4fb091fb210693dc7, type: 3}
   grass: {fileID: 537806512226338189, guid: 6a884e98f60f8ff4b85aeca3f0b419ef, type: 3}
   door: {fileID: 6357149376674065373, guid: 50858c5f881da0847a037fc6710eac3a, type: 3}
+  enemy: {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
   width: 20
   height: 20
   treeChance: 0.1
   grassChance: 0.5
+  numEnemies: 10
 --- !u!4 &177137668
 Transform:
   m_ObjectHideFlags: 0
