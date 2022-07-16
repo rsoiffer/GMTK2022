@@ -500,6 +500,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59f62f016224e0d83d01032587c063d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boulder: {fileID: 1013495857525175366, guid: 0182790e6f1c2b14d8144da85b01c23f, type: 3}
+  shootSpeed: 15
+  block: {fileID: 1013495857525175366, guid: 06dc03d018dbb64458edda5e5768682e, type: 3}
+  blockMinRange: 1
+  blockMaxRange: 5
+  minBlockTime: 0.2
 --- !u!1 &7745703571783447517
 GameObject:
   m_ObjectHideFlags: 0
