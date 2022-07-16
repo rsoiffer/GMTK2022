@@ -12,7 +12,7 @@ public class Burnable: ElementReaction
     {
         base.ElementAddedHandler(element);
         
-        if (element is ChemistryFire)
+        if (element is Fire)
         {
             print("ouch fire");
         }
