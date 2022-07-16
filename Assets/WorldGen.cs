@@ -21,7 +21,7 @@ public class WorldGen : MonoBehaviour
 
     public bool AllEnemiesDead => allEnemies.TrueForAll(e => e == null);
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
 
