@@ -12,6 +12,13 @@ public class Burnable: ElementReaction
     {
         base.ElementAddedHandler(element);
         
-        print("yep that's an element");
+        if (element is ChemistryFire)
+        {
+            print("ouch fire");
+        }
+        else
+        {
+            print("yep that's an element");
+        }
     }
 }
