@@ -31,16 +31,4 @@ public class ChemistryMaterial : MonoBehaviour
             ElementRemoved(element);
         }
     }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        ChemistryElement element = other.gameObject.GetComponent<ChemistryElement>();
-        if (element)
-        {
-            // if (element is ChemistryFire)
-            // {
-            //     FireInteraction(element);
-            // }
-        }
-    }
 }
