@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Transform playerPos;
+    private Vector2 playerPos;
     private Rigidbody2D enemyRigidbody;
     public float moveSpeed = 2f;
     private Vector2 direction;
@@ -12,14 +12,14 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
         enemyRigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     { 
-        direction = ((Vector2)playerPos.position - enemyRigidbody.position);
+        direction = (playerPos- enemyRigidbody.position);
         direction.Normalize();
     }
     
@@ -30,6 +30,6 @@ public class EnemyMovement : MonoBehaviour
 
     void moveCharacter(Vector2 movement)
     {
-        enemyRigidbody.MovePosition((Vector2)(transform.position) + (movement * moveSpeed * Time.deltaTime));
+        enemyRigidbody.velocity = direction * moveSpeed;
     }
 }
