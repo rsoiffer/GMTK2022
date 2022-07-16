@@ -1,29 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Vector2 playerPos;
-    private Rigidbody2D enemyRigidbody;
     public float moveSpeed = 2f;
+
+    private GameObject player;
+    private Rigidbody2D enemyRigidbody;
     private Vector2 direction;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
+        player = GameObject.FindWithTag("Player");
         enemyRigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        direction = (playerPos- enemyRigidbody.position);
+        direction = (Vector2)player.transform.position - enemyRigidbody.position;
         direction.Normalize();
-        moveCharacter(direction);
+        MoveCharacter();
     }
 
-    void moveCharacter(Vector2 movement)
+    private void MoveCharacter()
     {
         enemyRigidbody.velocity = direction * moveSpeed;
     }
