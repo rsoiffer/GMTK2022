@@ -2,63 +2,45 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Transform camera;
-    public float mouseSensitivity;
-
-    public float moveSpeed;
+    public float targetSpeed;
     public float accelRate;
 
-    private Rigidbody myRigidbody;
-    private float yaw, pitch;
+    private Rigidbody2D myRigidbody2D;
 
     private void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void Update()
-    {
-        var h = mouseSensitivity * Input.GetAxis("Mouse X");
-        var v = mouseSensitivity * Input.GetAxis("Mouse Y");
-        yaw += h * Time.deltaTime;
-        pitch -= v * Time.deltaTime;
-        pitch = Mathf.Clamp(pitch, -80, 80);
-        camera.rotation = Quaternion.Euler(pitch, yaw, 0);
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        myRigidbody.rotation = Quaternion.Euler(0, yaw, 0);
-
-        var goalVelocity = Vector3.zero;
+        var targetVel = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            goalVelocity += myRigidbody.transform.forward;
+            targetVel += Vector2.up;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            goalVelocity -= myRigidbody.transform.right;
+            targetVel += Vector2.left;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            goalVelocity -= myRigidbody.transform.forward;
+            targetVel += Vector2.down;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            goalVelocity += myRigidbody.transform.right;
+            targetVel += Vector2.right;
         }
 
-        if (goalVelocity.magnitude > 1e-3)
+        if (targetVel.magnitude > 1e-3)
         {
-            goalVelocity = goalVelocity.normalized * moveSpeed;
+            targetVel = targetVel.normalized * targetSpeed;
         }
 
-        var toGoalVelocity = goalVelocity - myRigidbody.velocity;
-        toGoalVelocity.y = 0;
-        myRigidbody.AddForce(toGoalVelocity * accelRate, ForceMode.Acceleration);
+        var toTargetVel = targetVel - myRigidbody2D.velocity;
+        myRigidbody2D.velocity += Time.fixedDeltaTime * accelRate * toTargetVel;
     }
 }
