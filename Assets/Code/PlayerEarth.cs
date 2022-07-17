@@ -10,6 +10,7 @@ public class PlayerEarth : MonoBehaviour
     public GameObject block;
     public float blockMinRange, blockMaxRange;
     public float minBlockTime = .2f;
+    public float blockShake = .5f;
     public GameObject blockTargetingParticles;
 
     private float lastMouseDownTime;
@@ -63,6 +64,7 @@ public class PlayerEarth : MonoBehaviour
                 // Block
                 var newBlock = Instantiate(block);
                 newBlock.transform.position = BlockTargetPos();
+                CameraFollow.Instance.Shake(blockShake);
             }
         }
 

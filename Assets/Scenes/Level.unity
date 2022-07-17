@@ -378,7 +378,6 @@ MonoBehaviour:
   followRate: 10
   unshakeRate: 50
   shakeScale: 0.5
-  currentShake: 0
 --- !u!114 &1366067935
 MonoBehaviour:
   m_ObjectHideFlags: 0
