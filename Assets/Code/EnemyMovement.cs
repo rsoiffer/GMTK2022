@@ -9,11 +9,13 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
     private Vector2 direction;
     public float distanceToPlayer =0f;
+    private SpriteRenderer renderer;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         myRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -25,6 +27,15 @@ public class EnemyMovement : MonoBehaviour
         if (direction.magnitude > distanceToPlayer)
         {
             direction.Normalize();
+            if (direction.x < 0)
+            {
+                renderer.flipX = true;
+            }
+
+            else
+            {
+                renderer.flipX = false;
+            }
             MoveCharacter();   
         }
     }
