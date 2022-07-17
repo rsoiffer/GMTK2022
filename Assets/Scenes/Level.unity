@@ -162,6 +162,7 @@ MonoBehaviour:
   enemy:
   - {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
   - {fileID: 537806512226338189, guid: 9d0a098756360344082e2cb9de1a0cad, type: 3}
+  - {fileID: 537806512226338189, guid: b24f22b72e96041459d00d817d437c2b, type: 3}
   width: 100
   height: 100
   treeChance: 0.1
