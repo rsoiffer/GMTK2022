@@ -43,7 +43,7 @@ public class Flammable : MonoBehaviour
 
         if (onFire)
         {
-            var myHealth = GetComponent<Health>();
+            var myHealth = GetComponentInParent<Health>();
             if (myHealth != null)
             {
                 myHealth.TakeDamage(fireDPS * Time.deltaTime);
