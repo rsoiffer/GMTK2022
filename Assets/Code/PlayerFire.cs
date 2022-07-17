@@ -43,8 +43,8 @@ public class PlayerFire : MonoBehaviour
                 fireStreamDamageArea.GetComponentInChildren<ElementTags>().fire =
                     1 + LevelManager.Instance.upgradeFire3;
 
-                fireStreamParticles.transform.localScale = Vector3.one * .4f * (1 + LevelManager.Instance.upgradeFire4);
-                fireStreamDamageArea.transform.localScale = Vector3.one * (1 + LevelManager.Instance.upgradeFire4);
+                fireStreamParticles.transform.localScale = Vector3.one * .4f * (1 + .5f * LevelManager.Instance.upgradeFire4);
+                fireStreamDamageArea.transform.localScale = Vector3.one * (1 + .5f * LevelManager.Instance.upgradeFire4);
             }
         }
 

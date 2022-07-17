@@ -47,7 +47,7 @@ public class PlayerAir : MonoBehaviour
                     Random.value > .5 ? 180 : 0, 0, 0);
                 CameraFollow.Instance.Shake(.25f * (1 + LevelManager.Instance.upgradeAir2));
 
-                newAirSlash.transform.localScale *= 1 + LevelManager.Instance.upgradeAir1;
+                newAirSlash.transform.localScale *= 1 + .5f * LevelManager.Instance.upgradeAir1;
                 newAirSlash.GetComponentInChildren<DamageArea>().knockbackForce *=
                     1 + LevelManager.Instance.upgradeAir1;
 
