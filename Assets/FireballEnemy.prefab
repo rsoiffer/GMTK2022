@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1013495857525175368}
   - component: {fileID: 1013495857525175367}
   - component: {fileID: -3827367656520432887}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: FireballEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6020568623199202694}
   - component: {fileID: 7191360279555381617}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Fire Spreader
   m_TagString: Fire Element
   m_Icon: {fileID: 0}
@@ -199,15 +199,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1958064333, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5540483749565965531, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5540483750024090295, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_Name
@@ -215,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102983, guid: cfe8cf59a27e77e42afaf7c10825dbd7, type: 3}
       propertyPath: m_RootOrder

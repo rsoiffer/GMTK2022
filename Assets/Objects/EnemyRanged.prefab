@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6113247661818803798}
   - component: {fileID: 4157852216645809838}
   - component: {fileID: -5686972860184456276}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: EnemyRanged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 3146328261117119123}
   - component: {fileID: 2234652257971365917}
   - component: {fileID: 7763862649848734724}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Fire Spreader
   m_TagString: Fire Element
   m_Icon: {fileID: 0}
@@ -287,15 +287,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1958064333, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540483749565965531, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540483750024090295, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Name
@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_IsActive
