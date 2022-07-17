@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 
     public int levelNum;
 
+    private int choice = -1;
+
     private void Awake()
     {
         if (Instance != null)
@@ -23,5 +25,15 @@ public class LevelManager : MonoBehaviour
     {
         levelNum += 1;
         SceneManager.LoadScene("Level");
+    }
+
+    public void Reroll()
+    {
+        choice = -1;
+    }
+
+    public void Upgrade(int id)
+    {
+        choice = id;
     }
 }
