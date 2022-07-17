@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public float invincibilityTime;
     private float currentInvincibilityTime;
 
+    public float shakeOnDamage;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -19,6 +21,7 @@ public class Health : MonoBehaviour
 
         currentHealth -= damage;
         currentInvincibilityTime = invincibilityTime;
+        CameraFollow.Instance.Shake(shakeOnDamage);
 
         if (currentHealth <= 0)
         {

@@ -141,6 +141,8 @@ MonoBehaviour:
   damage: 1
   detachOnDeath: {fileID: 6802655278923928657}
   detachLifetime: 5
+  spawnOnDeath: {fileID: 5579443807443714152, guid: 7374ad25fa1202a4ca31febb97203d39, type: 3}
+  shakeOnHit: 0.5
 --- !u!1 &4149970770060460741
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +153,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6020568623199202694}
   - component: {fileID: 7191360279555381617}
+  - component: {fileID: 2379508005773582149}
   m_Layer: 9
   m_Name: Fire Spreader
-  m_TagString: Fire Element
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +192,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &2379508005773582149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149970770060460741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af601afab45e410193b0ca7f4ab1368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: 1
+  earth: 0
+  water: 0
+  air: 0
 --- !u!1001 &1334229266034812561
 PrefabInstance:
   m_ObjectHideFlags: 0

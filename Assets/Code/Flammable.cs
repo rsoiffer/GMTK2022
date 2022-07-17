@@ -6,7 +6,6 @@ public class Flammable : MonoBehaviour
     public GameObject fireSpreader;
 
     public float catchFireRate;
-    public float spreadFireChance;
     public float maxFireDuration;
     public float fireDPS;
 
@@ -14,11 +13,25 @@ public class Flammable : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Fire Element"))
+        var tags = col.gameObject.GetComponent<ElementTags>();
+        if (tags == null) return;
+
+        if (Random.value < Time.deltaTime * catchFireRate * tags.fire)
         {
-            if (Random.value < Time.deltaTime * catchFireRate)
+            fireTimer = maxFireDuration;
+        }
+
+        if (fireTimer > 0)
+        {
+            if (tags.water || tags.earth)
             {
-                fireTimer = maxFireDuration;
+                fireTimer = 0;
+            }
+            else if (tags.air)
+            {
+                // spreadFireChance *= 2;
+                var tags2 = fireSpreader.GetComponent<ElementTags>();
+                tags2.fire *= 2;
             }
         }
     }
@@ -30,14 +43,14 @@ public class Flammable : MonoBehaviour
 
         if (onFire)
         {
-            var myHealth = GetComponent<Health>();
+            var myHealth = GetComponentInParent<Health>();
             if (myHealth != null)
             {
                 myHealth.TakeDamage(fireDPS * Time.deltaTime);
             }
         }
 
-        fireSpreader.SetActive(onFire && Random.value < spreadFireChance);
+        fireSpreader.SetActive(onFire);
         fireParticles.SetActive(fireTimer > -5);
         foreach (var particles in fireParticles.GetComponentsInChildren<ParticleSystem>())
         {

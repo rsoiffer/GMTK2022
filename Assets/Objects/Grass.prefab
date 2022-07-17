@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  invincibilityTime: 0
+  shakeOnDamage: 0
 --- !u!114 &4874494389366791944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +136,6 @@ MonoBehaviour:
   fireParticles: {fileID: 185592416191792341}
   fireSpreader: {fileID: 7673389702147165591}
   catchFireRate: 10
-  spreadFireChance: 0.05
   maxFireDuration: 5
   fireDPS: 0.5
 --- !u!58 &700620411066548665
@@ -164,9 +165,10 @@ GameObject:
   - component: {fileID: 1295651118470409255}
   - component: {fileID: 6729490188217744997}
   - component: {fileID: 3827232555405682731}
+  - component: {fileID: 1199902876862967643}
   m_Layer: 7
   m_Name: Fire Spreader
-  m_TagString: Fire Element
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +225,22 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1199902876862967643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673389702147165591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af601afab45e410193b0ca7f4ab1368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: 0.1
+  earth: 0
+  water: 0
+  air: 0
 --- !u!1001 &5652188834289645077
 PrefabInstance:
   m_ObjectHideFlags: 0
