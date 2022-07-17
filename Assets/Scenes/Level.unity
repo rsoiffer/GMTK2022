@@ -170,7 +170,7 @@ MonoBehaviour:
   grassChance: 0.5
   pebbleChance: 0.01
   numEnemies: 1
-  numExtraEnemiesPerLevel: 1
+  numExtraEnemiesPerLevel: 2
 --- !u!4 &177137668
 Transform:
   m_ObjectHideFlags: 0
