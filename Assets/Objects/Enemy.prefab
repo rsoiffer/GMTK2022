@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  invincibilityTime: 0
 --- !u!114 &6113247661818803798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19cd4b14526c0e4e962f04c5dcd2c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
+  accelRate: 5
 --- !u!114 &4157852216645809838
 MonoBehaviour:
   m_ObjectHideFlags: 0
