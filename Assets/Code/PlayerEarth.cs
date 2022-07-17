@@ -50,6 +50,8 @@ public class PlayerEarth : MonoBehaviour
             blockTargetingParticles.transform.position = BlockTargetPos();
             blockTargetDamageArea.transform.position = BlockTargetPos();
 
+            blockTargetingParticles.transform.localScale =
+                Vector3.one * 0.6f * (1 + LevelManager.Instance.upgradeEarth4);
             blockTargetDamageArea.GetComponentInChildren<DamageArea>().damagePerSecond =
                 0.5f * (1 + LevelManager.Instance.upgradeEarth4);
             blockTargetDamageArea.GetComponentInChildren<DamageArea>().knockbackForce =
