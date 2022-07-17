@@ -2,8 +2,11 @@
 
 public class PlayerAir : MonoBehaviour
 {
-    public GameObject airStreamParticles;
-    public GameObject airStreamDamageArea;
+    public GameObject airTornadoParticles;
+    public GameObject airTornadoDamageArea;
+
+    public float airTornadoFollowRate = 4;
+    private Vector2 airTornadoPos;
 
     private Vector2 ToMouse()
     {
@@ -15,14 +18,24 @@ public class PlayerAir : MonoBehaviour
     private void Update()
     {
         var airStreamActive = Input.GetMouseButton(0);
+        var mousePos = (Vector2)transform.position + ToMouse();
 
-        airStreamParticles.transform.rotation = Quaternion.Euler(0, 0,
-            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
-        airStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
-            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+        if (Input.GetMouseButtonDown(0))
+        {
+            airTornadoPos = transform.position;
+        }
 
-        airStreamDamageArea.SetActive(airStreamActive);
-        foreach (var particles in airStreamParticles.GetComponentsInChildren<ParticleSystem>())
+        if (airStreamActive)
+        {
+            airTornadoPos = Vector2.Lerp(mousePos, airTornadoPos,
+                Mathf.Exp(-airTornadoFollowRate * Time.deltaTime));
+        }
+
+        airTornadoParticles.transform.position = airTornadoPos;
+        airTornadoDamageArea.transform.position = airTornadoPos;
+
+        airTornadoDamageArea.SetActive(airStreamActive);
+        foreach (var particles in airTornadoParticles.GetComponentsInChildren<ParticleSystem>())
         {
             var emission = particles.emission;
             emission.enabled = airStreamActive;
