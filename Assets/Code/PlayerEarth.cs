@@ -12,6 +12,7 @@ public class PlayerEarth : MonoBehaviour
     public float minBlockTime = .2f;
     public float blockShake = .5f;
     public GameObject blockTargetingParticles;
+    public GameObject blockTargetDamageArea;
 
     private float lastMouseDownTime;
 
@@ -47,6 +48,12 @@ public class PlayerEarth : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             blockTargetingParticles.transform.position = BlockTargetPos();
+            blockTargetDamageArea.transform.position = BlockTargetPos();
+
+            blockTargetDamageArea.GetComponentInChildren<DamageArea>().damagePerSecond =
+                0.5f * (1 + LevelManager.Instance.upgradeEarth4);
+            blockTargetDamageArea.GetComponentInChildren<DamageArea>().knockbackForce =
+                5 * (1 + LevelManager.Instance.upgradeEarth4);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -58,13 +65,29 @@ public class PlayerEarth : MonoBehaviour
                 newBoulder.transform.position = transform.position;
                 newBoulder.transform.rotation = quaternion.Euler(0, 0, Random.Range(0f, 360f));
                 newBoulder.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
+
+                newBoulder.GetComponent<Projectile>().damage *= 1 + LevelManager.Instance.upgradeEarth1;
+                newBoulder.GetComponent<Projectile>().shakeOnHit *= 1 + LevelManager.Instance.upgradeEarth1;
+                newBoulder.GetComponent<Rigidbody2D>().mass *= 1 + LevelManager.Instance.upgradeEarth1;
+
+                newBoulder.GetComponent<Rigidbody2D>().velocity *= 1 + LevelManager.Instance.upgradeEarth2;
+                newBoulder.GetComponent<Projectile>().shakeOnHit *= 1 + LevelManager.Instance.upgradeEarth2;
             }
             else
             {
                 // Block
                 var newBlock = Instantiate(block);
                 newBlock.transform.position = BlockTargetPos();
-                CameraFollow.Instance.Shake(blockShake);
+                CameraFollow.Instance.Shake(blockShake * (1 + LevelManager.Instance.upgradeEarth4));
+
+                newBlock.transform.localScale *= 1 + LevelManager.Instance.upgradeEarth3;
+                var newBlockHealth = newBlock.GetComponent<Health>();
+                newBlockHealth.TakeDamage(-newBlockHealth.maxHealth * LevelManager.Instance.upgradeEarth3);
+
+                newBlock.GetComponentInChildren<DamageArea>().damagePerSecond *=
+                    1 + LevelManager.Instance.upgradeEarth4;
+                newBlock.GetComponentInChildren<DamageArea>().knockbackForce *=
+                    1 + LevelManager.Instance.upgradeEarth4;
             }
         }
 
