@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   invincibilityTime: 0
+  shakeOnDamage: 0
 --- !u!114 &6113247661818803798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  accelRate: 10
   distanceToPlayer: 0
 --- !u!114 &4157852216645809838
 MonoBehaviour:
@@ -215,6 +217,7 @@ GameObject:
   - component: {fileID: 3146328261117119123}
   - component: {fileID: 2234652257971365917}
   - component: {fileID: 7763862649848734724}
+  - component: {fileID: 3557489891405957026}
   m_Layer: 11
   m_Name: Fire Spreader
   m_TagString: Untagged
