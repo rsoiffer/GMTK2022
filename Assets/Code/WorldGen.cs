@@ -22,9 +22,9 @@ public class WorldGen : MonoBehaviour
     public float minEnemyDistToPlayer = 10;
 
     private GameObject[,] tiles;
-    private List<GameObject> allEnemies = new();
 
-    public bool AllEnemiesDead => allEnemies.TrueForAll(e => e == null);
+    public List<GameObject> AllEnemies { get; } = new();
+    public bool AllEnemiesDead => AllEnemies.TrueForAll(e => e == null);
 
     private void Start()
     {
@@ -113,7 +113,7 @@ public class WorldGen : MonoBehaviour
                 if (distToPlayer > minEnemyDistToPlayer) newEnemy = TrySpawn(enemy[enemyId], enemyX, enemyY);
             }
 
-            allEnemies.Add(newEnemy);
+            AllEnemies.Add(newEnemy);
         }
     }
 
