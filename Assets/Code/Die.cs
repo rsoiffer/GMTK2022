@@ -29,7 +29,6 @@ public class Die : MonoBehaviour
     {
         if (gameObject.activeInHierarchy && unlocked && col.gameObject.CompareTag("Player"))
         {
-            LevelManager.Instance.Reroll();
             upgrade.Reroll();
             CameraFollow.Instance.Shake(shake);
             rollsLeft -= 1;

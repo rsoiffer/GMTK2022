@@ -5,6 +5,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
+    public float restartTimer = 5;
     public int levelNum;
 
     public int upgradeFire1;
@@ -43,11 +44,10 @@ public class LevelManager : MonoBehaviour
 
     public void ToNextLevel()
     {
+        if (choice == -1) choice = Random.Range(0, 16);
+
         switch (choice)
         {
-            case -1:
-                // TODO
-                break;
             case 0:
                 upgradeFire1++;
                 break;
@@ -98,17 +98,26 @@ public class LevelManager : MonoBehaviour
                 break;
         }
 
+        choice = -1;
         levelNum += 1;
         SceneManager.LoadScene("Level");
-    }
-
-    public void Reroll()
-    {
-        choice = -1;
     }
 
     public void Upgrade(int id)
     {
         choice = id;
+    }
+
+    private void Update()
+    {
+        if (Player.Instance == null)
+        {
+            restartTimer -= Time.deltaTime;
+            if (restartTimer < 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene("Title");
+            }
+        }
     }
 }
