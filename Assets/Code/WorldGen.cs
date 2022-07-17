@@ -9,7 +9,8 @@ public class WorldGen : MonoBehaviour
     public GameObject wall, water;
     public GameObject tree, grass, pebble;
     public GameObject door;
-    public GameObject enemy;
+    public GameObject[] enemy;
+    private int enemyPrefabCount;
 
     [Header("Generation Settings")] public int width = 20;
     public int height = 20;
@@ -28,6 +29,7 @@ public class WorldGen : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        enemyPrefabCount = enemy.Length;
         int seed = Random.Range(0, 1000);
 
         tiles = new GameObject[width + 1, height + 1];
@@ -86,10 +88,11 @@ public class WorldGen : MonoBehaviour
         var currentNumEnemies = numEnemies + numExtraEnemiesPerLevel * LevelManager.Instance.levelNum;
         for (int i = 0; i < currentNumEnemies; i++)
         {
+            int enemy_num = Random.Range(0, enemyPrefabCount);
             GameObject newEnemy = null;
             while (newEnemy == null)
             {
-                newEnemy = TrySpawn(enemy, Random.Range(1, width), Random.Range(1, height));
+                newEnemy = TrySpawn(enemy[enemy_num], Random.Range(1, width), Random.Range(1, height));
             }
 
             allEnemies.Add(newEnemy);

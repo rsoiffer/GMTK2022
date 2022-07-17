@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     private Rigidbody2D enemyRigidbody;
     private Vector2 direction;
+    public float distanceToPlayer =0f;
 
     private void Start()
     {
@@ -17,9 +18,14 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (player == null) return;
+        
         direction = (Vector2)player.transform.position - enemyRigidbody.position;
-        direction.Normalize();
-        MoveCharacter();
+
+        if (direction.magnitude > distanceToPlayer)
+        {
+            direction.Normalize();
+            MoveCharacter();   
+        }
     }
 
     private void MoveCharacter()
