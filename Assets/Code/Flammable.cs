@@ -21,6 +21,17 @@ public class Flammable : MonoBehaviour
                 fireTimer = maxFireDuration;
             }
         }
+        else if (fireTimer > 0)
+        {
+            if (col.gameObject.CompareTag("Water Element") || col.gameObject.CompareTag("Earth Element"))
+            {
+                fireTimer = 0;
+            }
+            else if (col.gameObject.CompareTag("Air Element"))
+            {
+                spreadFireChance *= 2;
+            }
+        }
     }
 
     private void Update()

@@ -4,6 +4,11 @@ public class PlayerWater : MonoBehaviour
 {
     public GameObject waterStreamParticles;
     public GameObject waterStreamDamageArea;
+    public GameObject waterPuddle;
+    public float puddleSpawnInterval = 1f;
+    public float puddleSpawnDistance = 2f;
+    
+    private float lastPuddleTime;
 
     private Vector2 ToMouse()
     {
@@ -26,6 +31,17 @@ public class PlayerWater : MonoBehaviour
         {
             var emission = particles.emission;
             emission.enabled = waterStreamActive;
+        }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastPuddleTime = Time.time;
+        }
+        if (waterStreamActive && Time.time > lastPuddleTime + puddleSpawnInterval)
+        {
+            lastPuddleTime = Time.time;
+            var newPuddle = Instantiate(waterPuddle);
+            newPuddle.transform.position = transform.position + (Vector3)ToMouse().normalized * puddleSpawnDistance;
         }
     }
 }
