@@ -22,6 +22,11 @@ public class LevelManager : MonoBehaviour
     public int upgradeEarth3;
     public int upgradeEarth4;
 
+    public int upgradeAir1;
+    public int upgradeAir2;
+    public int upgradeAir3;
+    public int upgradeAir4;
+
     private int choice = -1;
 
     private void Awake()
@@ -78,6 +83,18 @@ public class LevelManager : MonoBehaviour
                 break;
             case 11:
                 upgradeEarth4++;
+                break;
+            case 12:
+                upgradeAir1++;
+                break;
+            case 13:
+                upgradeAir2++;
+                break;
+            case 14:
+                upgradeAir3++;
+                break;
+            case 15:
+                upgradeAir4++;
                 break;
         }
 

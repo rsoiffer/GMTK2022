@@ -1,13 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Die : MonoBehaviour
 {
-    public Door door;
-    public GameObject upgrade;
-    public Sprite dieSprite;
+    public Upgrade upgrade;
+    public List<Sprite> sprites;
     public float shake = 1;
-    
+    public int rollsLeft = 5;
+    public float lockTimeOnRoll = 1f;
+
     private bool unlocked;
 
     private IEnumerator Start()
@@ -19,19 +21,31 @@ public class Die : MonoBehaviour
         }
 
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = dieSprite;
+        spriteRenderer.sprite = sprites[rollsLeft];
         unlocked = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private IEnumerator OnCollisionEnter2D(Collision2D col)
     {
         if (gameObject.activeInHierarchy && unlocked && col.gameObject.CompareTag("Player"))
         {
             LevelManager.Instance.Reroll();
-            gameObject.SetActive(false);
-            upgrade.SetActive(true);
-            door.Unlock();
+            upgrade.Reroll();
             CameraFollow.Instance.Shake(shake);
+            rollsLeft -= 1;
+            if (rollsLeft < 0)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                var spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = sprites[rollsLeft];
+            }
+
+            unlocked = false;
+            yield return new WaitForSeconds(lockTimeOnRoll);
+            unlocked = true;
         }
     }
 }

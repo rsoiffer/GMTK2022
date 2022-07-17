@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Upgrade : MonoBehaviour
@@ -14,14 +13,20 @@ public class Upgrade : MonoBehaviour
     private bool unlocked;
     private int id;
 
-    private IEnumerator Start()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        yield return new WaitForEndOfFrame();
-        while (!WorldGen.Instance.AllEnemiesDead)
+        if (gameObject.activeInHierarchy && unlocked && col.gameObject.CompareTag("Player"))
         {
-            yield return new WaitForEndOfFrame();
+            LevelManager.Instance.Upgrade(id);
+            gameObject.SetActive(false);
+            die.SetActive(false);
+            door.Unlock();
+            CameraFollow.Instance.Shake(shake);
         }
+    }
 
+    public void Reroll()
+    {
         id = Random.Range(0, sprites.Count);
 
         if (optionsOverride.Count != 0)
@@ -32,17 +37,5 @@ public class Upgrade : MonoBehaviour
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[id];
         unlocked = true;
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (gameObject.activeInHierarchy && unlocked && col.gameObject.CompareTag("Player"))
-        {
-            LevelManager.Instance.Upgrade(id);
-            gameObject.SetActive(false);
-            die.SetActive(true);
-            door.Unlock();
-            CameraFollow.Instance.Shake(shake);
-        }
     }
 }

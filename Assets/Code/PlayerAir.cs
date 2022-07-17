@@ -24,7 +24,15 @@ public class PlayerAir : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lastMouseDownTime = Time.time;
-            airTornadoPos = transform.position;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if (Time.time > lastMouseDownTime + minAirTornadoTime
+                && Time.time - Time.deltaTime < lastMouseDownTime + minAirTornadoTime)
+            {
+                airTornadoPos = transform.position;
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -36,8 +44,15 @@ public class PlayerAir : MonoBehaviour
                 newAirSlash.transform.rotation = Quaternion.Euler(0, 0,
                     Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
                 newAirSlash.transform.GetChild(0).localRotation = Quaternion.Euler(
-                    Random.value > .5 ? 180 : 0, 0, -45);
-                CameraFollow.Instance.Shake(.25f);
+                    Random.value > .5 ? 180 : 0, 0, 0);
+                CameraFollow.Instance.Shake(.25f * (1 + LevelManager.Instance.upgradeAir2));
+
+                newAirSlash.transform.localScale *= 1 + LevelManager.Instance.upgradeAir1;
+                newAirSlash.GetComponentInChildren<DamageArea>().knockbackForce *=
+                    1 + LevelManager.Instance.upgradeAir1;
+
+                newAirSlash.GetComponentInChildren<DamageArea>().damagePerSecond *=
+                    1 + LevelManager.Instance.upgradeAir2;
             }
         }
 
@@ -53,11 +68,20 @@ public class PlayerAir : MonoBehaviour
         airTornadoParticles.transform.position = airTornadoPos;
         airTornadoDamageArea.transform.position = airTornadoPos;
 
+        airTornadoParticles.transform.localScale = Vector3.one * (1 + LevelManager.Instance.upgradeAir3);
+        airTornadoDamageArea.GetComponent<DamageArea>().damagePerSecond = 1f * (1 + LevelManager.Instance.upgradeAir4);
+        airTornadoDamageArea.GetComponent<DamageArea>().knockbackForce = -30 * (1 + LevelManager.Instance.upgradeAir4);
+
         airTornadoDamageArea.SetActive(airTornadoActive);
         foreach (var particles in airTornadoParticles.GetComponentsInChildren<ParticleSystem>())
         {
             var emission = particles.emission;
             emission.enabled = airTornadoActive;
+
+            if (particles.name == "EarthDustUpParticles")
+            {
+                emission.enabled = Input.GetMouseButton(0) && Time.time > lastMouseDownTime + minAirTornadoTime + .1f;
+            }
         }
     }
 }

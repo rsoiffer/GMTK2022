@@ -299,8 +299,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6d536b789e308504da279ff1f66ca876, type: 3}
   - {fileID: 21300000, guid: 59bbdf76163c7f44095eb159f6bd8eda, type: 3}
   - {fileID: 21300000, guid: 5b9c175cfb14d144e9d6bac539998ed6, type: 3}
+  - {fileID: 21300000, guid: f3377af5c9eee1b498b5de4f77a58fa2, type: 3}
+  - {fileID: 21300000, guid: bd732a0e14b78f2448d7b473fc33d08b, type: 3}
+  - {fileID: 21300000, guid: 791104121e6ee99498419e0ae4abfde4, type: 3}
+  - {fileID: 21300000, guid: 152966fff3922fb40bddc073f064061f, type: 3}
   shake: 1
-  optionsOverride: 08000000090000000a0000000b000000
+  optionsOverride: 
 --- !u!61 &389565345
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -685,10 +689,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506711478106485a9eb773fca6f735a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2009442018}
-  upgrade: {fileID: 389565340}
-  dieSprite: {fileID: 21300000, guid: e93731ed038862041990cb8eb5b4c65d, type: 3}
+  upgrade: {fileID: 389565344}
+  sprites:
+  - {fileID: 21300000, guid: 89bf4de996fa54646932fd47fe367a4d, type: 3}
+  - {fileID: 21300000, guid: ea954b879f9e553499a095161ec185f4, type: 3}
+  - {fileID: 21300000, guid: 3d0cd25ee8bb9ec45b19aaa624e09fa2, type: 3}
+  - {fileID: 21300000, guid: fe9706cf6d14f5f43a79317a5153308a, type: 3}
+  - {fileID: 21300000, guid: efee60192a417554ab7ec09d4ac2d22d, type: 3}
+  - {fileID: 21300000, guid: e93731ed038862041990cb8eb5b4c65d, type: 3}
   shake: 1
+  rollsLeft: 5
+  lockTimeOnRoll: 0.5
 --- !u!61 &775044078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1024,6 +1035,10 @@ MonoBehaviour:
   upgradeEarth2: 0
   upgradeEarth3: 0
   upgradeEarth4: 0
+  upgradeAir1: 0
+  upgradeAir2: 0
+  upgradeAir3: 0
+  upgradeAir4: 0
 --- !u!4 &1816735972
 Transform:
   m_ObjectHideFlags: 0

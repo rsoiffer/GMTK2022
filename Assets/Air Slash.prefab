@@ -60,12 +60,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.29841554, y: 1.7877291}
+    - - {x: 0.79449475, y: 1.0212725}
       - {x: 0.01601547, y: -0.015919238}
-      - {x: -0.28451765, y: -1.8751844}
-      - {x: 1.272815, y: -1.5669665}
-      - {x: 2.0618, y: 0.00040453672}
-      - {x: 1.2641038, y: 1.5782075}
+      - {x: 0.78710234, y: -1.0093724}
+      - {x: 1.1876533, y: -0.8005097}
+      - {x: 1.4940544, y: -0.0066922978}
+      - {x: 1.1718451, y: 0.7975572}
   m_UseDelaunayMesh: 0
 --- !u!114 &209269363999245959
 MonoBehaviour:
@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293710, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293710, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293710, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293710, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293710, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 25922140584293711, guid: d7dd92e5565c9f842a8dc2652277c54a, type: 3}
       propertyPath: m_Name
