@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     private float currentInvincibilityTime;
 
     public float shakeOnDamage;
+    public AudioClip damageSound;
 
     private void Awake() => CurrentHealth = maxHealth;
 
@@ -19,6 +20,16 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         currentInvincibilityTime = invincibilityTime;
         CameraFollow.Instance.Shake(shakeOnDamage);
+        
+        AudioSource audio = GetComponent<AudioSource>();
+        if (damageSound && audio)
+        {
+            audio.clip = damageSound;
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+        }
 
         if (CurrentHealth <= 0)
         {
