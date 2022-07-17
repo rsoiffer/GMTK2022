@@ -9,7 +9,10 @@ public class TitleMenuView : MonoBehaviour
         var document = GetComponent<UIDocument>();
 
         var playButton = document.rootVisualElement.Q<Button>("PlayButton");
-        playButton.clicked += () => SceneManager.LoadScene("Level");
+        playButton.clicked += () => {
+            GetComponent<AudioSource>().Play();
+            SceneManager.LoadScene("Level");
+        };
 
         var quitButton = document.rootVisualElement.Q<Button>("QuitButton");
         quitButton.clicked += () =>
