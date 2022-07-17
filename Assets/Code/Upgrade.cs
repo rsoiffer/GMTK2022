@@ -9,6 +9,8 @@ public class Upgrade : MonoBehaviour
     public List<Sprite> sprites;
     public float shake = 1;
 
+    public List<int> optionsOverride;
+
     private bool unlocked;
     private int id;
 
@@ -21,6 +23,12 @@ public class Upgrade : MonoBehaviour
         }
 
         id = Random.Range(0, sprites.Count);
+
+        if (optionsOverride.Count != 0)
+        {
+            id = optionsOverride[Random.Range(0, optionsOverride.Count)];
+        }
+
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[id];
         unlocked = true;

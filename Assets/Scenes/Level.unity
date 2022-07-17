@@ -296,6 +296,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ea7be1926b92f1d4b960f95bfc54c553, type: 3}
   - {fileID: 21300000, guid: 263459a2bd7117a4c97dd5a7a1231e8e, type: 3}
   shake: 1
+  optionsOverride: 
 --- !u!61 &389565345
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -949,6 +950,10 @@ MonoBehaviour:
   upgradeFire2: 0
   upgradeFire3: 0
   upgradeFire4: 0
+  upgradeWater1: 0
+  upgradeWater2: 0
+  upgradeWater3: 0
+  upgradeWater4: 0
 --- !u!4 &1816735972
 Transform:
   m_ObjectHideFlags: 0
