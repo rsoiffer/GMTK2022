@@ -1,13 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; align-items: stretch;">
         <ui:VisualElement style="align-items: flex-end;">
-            <ui:Button tabindex="-1" text="Quit" display-tooltip-when-elided="true" style="width: 60px; height: 60px;" />
+            <ui:Button tabindex="-1" text="Quit" display-tooltip-when-elided="true" name="QuitButton" style="width: 60px; height: 60px;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
-            <ui:Button tabindex="-1" text="Play" display-tooltip-when-elided="true" style="width: 25%; -unity-font-style: bold; font-size: 32px;" />
+            <ui:Button tabindex="-1" text="Play" display-tooltip-when-elided="true" name="PlayButton" style="width: 25%; -unity-font-style: bold; font-size: 32px;" />
         </ui:VisualElement>
         <ui:VisualElement style="align-items: flex-end;">
-            <ui:Button tabindex="-1" text="Mute" display-tooltip-when-elided="true" style="width: 60px; height: 60px;" />
+            <ui:Button tabindex="-1" text="Mute" display-tooltip-when-elided="true" name="MuteButton" style="width: 60px; height: 60px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
