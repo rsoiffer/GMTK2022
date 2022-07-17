@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 589996a7b2bf79e4db053a879c10c062, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.996243, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e315f7c55d381145a5fcb5ab9842b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: -3827367656520432887, guid: 9468c648e4dd726418bc76a9aa06adfc, type: 3}
+  fireball: {fileID: -3827367656520432887, guid: 64a975e1afdc4804187c0657d8ea6560, type: 3}
   playerDistance: 10
 --- !u!1 &871342782675690261
 GameObject:

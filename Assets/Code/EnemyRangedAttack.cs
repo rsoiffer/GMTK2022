@@ -5,7 +5,10 @@ using UnityEngine;
 public class EnemyRangedAttack : MonoBehaviour
 {
     public Projectile fireball;
-    public float playerDistance = 10f; 
+    public float playerDistance = 10f;
+    public float shootSpeed = 7f;
+    private bool isRunning = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +20,21 @@ public class EnemyRangedAttack : MonoBehaviour
     {
         if ((Player.Instance.transform.position - transform.position).magnitude < playerDistance)
         {
-            StartCoroutine(Shoot());
+            if (isRunning == false)
+            {
+                StartCoroutine(Shoot());
+            }
         }
     }
 
     IEnumerator Shoot()
     {
-        Projectile projectile = Instantiate(fireball, transform.position, transform.rotation);
+        isRunning = true;
+        Projectile projectile = Instantiate(fireball);
+        projectile.transform.position = transform.position;
+        Vector2 direction = Player.Instance.transform.position - transform.position;
+        projectile.GetComponent<Rigidbody2D>().velocity = shootSpeed * direction.normalized;
         yield return new WaitForSeconds(3f);
+        isRunning = false;
     }
 }
