@@ -3,27 +3,24 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
-    private float currentHealth;
+    public float CurrentHealth { get; private set; }
 
     public float invincibilityTime;
     private float currentInvincibilityTime;
 
     public float shakeOnDamage;
 
-    private void Awake()
-    {
-        currentHealth = maxHealth;
-    }
+    private void Awake() => CurrentHealth = maxHealth;
 
     public void TakeDamage(float damage)
     {
         if (currentInvincibilityTime > 0) return;
 
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         currentInvincibilityTime = invincibilityTime;
         CameraFollow.Instance.Shake(shakeOnDamage);
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
         }
