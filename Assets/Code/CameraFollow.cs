@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
     private Vector2 currentPos;
     private float currentShake;
     private Vector3 offset;
+    private Vector2 playerPos;
 
     private void Awake()
     {
@@ -33,9 +34,11 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if (Player.Instance == null) return;
+        if (Player.Instance != null)
+        {
+            playerPos = Player.Instance.transform.position;
+        }
 
-        Vector2 playerPos = Player.Instance.transform.position;
         currentPos = Vector2.Lerp(playerPos, currentPos, Mathf.Exp(-Time.deltaTime * followRate));
 
         currentShake *= Mathf.Exp(-Time.deltaTime * unshakeRate);
