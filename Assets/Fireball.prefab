@@ -141,6 +141,7 @@ MonoBehaviour:
   damage: 1
   detachOnDeath: {fileID: 6802655278923928657}
   detachLifetime: 5
+  shakeOnHit: 0.5
 --- !u!1 &4149970770060460741
 GameObject:
   m_ObjectHideFlags: 0

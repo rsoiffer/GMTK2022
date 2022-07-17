@@ -13,20 +13,26 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D myRigidbody2D;
 
-    private void Start()
+    private void Awake()
     {
-        myRigidbody2D = GetComponent<Rigidbody2D>();
-
         if (Instance != null)
         {
-            Destroy(gameObject);
-            Instance.transform.position = transform.position;
             return;
         }
 
+        myRigidbody2D = GetComponent<Rigidbody2D>();
         Instance = this;
         transform.parent = null;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+            Instance.transform.position = transform.position;
+        }
     }
 
     private void Update()
