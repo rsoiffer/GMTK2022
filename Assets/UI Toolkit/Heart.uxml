@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-direction: row;">
+        <ui:VisualElement name="Full" style="background-image: url(&apos;project://database/Assets/UI/HeartFull.png?fileID=2800000&amp;guid=5273af56f9c99ff42bf29582e891deb5&amp;type=3#HeartFull&apos;); width: 64px; height: 64px;" />
+        <ui:VisualElement name="Half" style="background-image: url(&apos;project://database/Assets/UI/HeartHalf.png?fileID=2800000&amp;guid=7451652e3ff1d964094460d13c3781cd&amp;type=3#HeartHalf&apos;); width: 64px; height: 64px;" />
+        <ui:VisualElement name="Empty" style="background-image: url(&apos;project://database/Assets/UI/HeartEmpty.png?fileID=2800000&amp;guid=375b2b4cf7e6c5240b1ec790aefde072&amp;type=3#HeartEmpty&apos;); width: 64px; height: 64px;" />
+    </ui:VisualElement>
+</ui:UXML>
