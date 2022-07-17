@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     public GameObject detachOnDeath;
     public float detachLifetime;
 
+    public GameObject spawnOnDeath;
+
     public float shakeOnHit;
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -27,6 +29,12 @@ public class Projectile : MonoBehaviour
                 var emission = particles.emission;
                 emission.enabled = false;
             }
+        }
+
+        if (spawnOnDeath != null)
+        {
+            var newSpawn = Instantiate(spawnOnDeath);
+            newSpawn.transform.position = transform.position;
         }
 
         var otherHealth = col.gameObject.GetComponent<Health>();

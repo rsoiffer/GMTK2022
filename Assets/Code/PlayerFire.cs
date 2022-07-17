@@ -10,7 +10,6 @@ public class PlayerFire : MonoBehaviour
     public float minStreamTime = .2f;
 
     private float lastMouseDownTime;
-    private bool fireStreamActive;
 
     private Vector2 ToMouse()
     {
@@ -21,7 +20,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Update()
     {
-        fireStreamActive = false;
+        var fireStreamActive = false;
 
         if (Input.GetMouseButtonDown(0))
         {
