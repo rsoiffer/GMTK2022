@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  currentHealth: 3
+  invincibilityTime: 1
 --- !u!58 &734104265386178837
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -282,8 +282,6 @@ MonoBehaviour:
   - {fileID: 7599957764969227007}
   - {fileID: 9127173254125156453}
   - {fileID: 951370124907980585}
-  playerSpriteTexture: {fileID: 2800000, guid: 57e145e3432a7074bb86b0fb318f7bd3, type: 3}
-  flashTexture: {fileID: 2800000, guid: 0354810e269bb194695d01e4edfbdccc, type: 3}
 --- !u!114 &-6053735723253165036
 MonoBehaviour:
   m_ObjectHideFlags: 0

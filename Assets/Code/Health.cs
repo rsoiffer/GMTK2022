@@ -3,40 +3,31 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
-    private bool isPlayer = false;
-    public float currentHealth;
-    private GameObject player;
+    private float currentHealth;
+
+    public float invincibilityTime;
+    private float currentInvincibilityTime;
+
     private void Awake()
     {
-        isPlayer = gameObject.CompareTag("Player");
-        if (isPlayer)
-        {
-            player = gameObject;
-        }
         currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
+        if (currentInvincibilityTime > 0) return;
+
         currentHealth -= damage;
-        if (isPlayer)
-        {
-            Player.Instance.InvFrames();
-        }
-        
+        currentInvincibilityTime = invincibilityTime;
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
 
-    public float getCurrentHealth()
+    private void Update()
     {
-        return currentHealth;
-    }
-    
-    public void setHealth(float hp)
-    {
-        currentHealth = hp;
+        currentInvincibilityTime -= Time.deltaTime;
     }
 }

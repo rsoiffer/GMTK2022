@@ -12,20 +12,11 @@ public class Player : MonoBehaviour
     private int currentAbility = 0;
 
     private Rigidbody2D myRigidbody2D;
-    private Health playerHealth;
-    private SpriteRenderer playerRenderer;
-    public Texture2D playerSpriteTexture;
-    public Texture2D flashTexture;
-    private Texture2D currentPlayerSpriteTexture;
-    
 
     private void Start()
     {
         Instance = this;
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<Health>();
-        playerRenderer = GetComponent<SpriteRenderer>();
-        currentPlayerSpriteTexture = playerRenderer.sprite.texture;
     }
 
     private void Update()
@@ -39,8 +30,6 @@ public class Player : MonoBehaviour
         {
             abilities[i].SetActive(i == currentAbility);
         }
-        
-        
     }
 
     private void FixedUpdate()
@@ -58,29 +47,5 @@ public class Player : MonoBehaviour
 
         var toTargetVel = targetVel - myRigidbody2D.velocity;
         myRigidbody2D.velocity += Time.fixedDeltaTime * accelRate * toTargetVel;
-    }
-
-    public void InvFrames()
-    {
-        //Temporarily disable health for a few seconds, flash the player sprite in and out
-        playerHealth.enabled = false;
-        float timer = 3f;
-        while (timer > 0.1f)
-        {
-            if (currentPlayerSpriteTexture != flashTexture)
-            {
-                currentPlayerSpriteTexture = flashTexture;
-            }
-
-            else
-            {
-                currentPlayerSpriteTexture = playerSpriteTexture;
-            }
-
-            timer -= Time.deltaTime;
-            Debug.Log("TIMER = " + timer);
-        }
-
-        playerHealth.enabled = true;
     }
 }
