@@ -31,12 +31,13 @@ public class PlayerAir : MonoBehaviour
         {
             if (Time.time < lastMouseDownTime + minAirTornadoTime)
             {
-                var newAirSlash = Instantiate(airSlash, transform);
+                var newAirSlash = Instantiate(airSlash, Player.Instance.transform);
                 newAirSlash.transform.position = transform.position;
                 newAirSlash.transform.rotation = Quaternion.Euler(0, 0,
                     Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
                 newAirSlash.transform.GetChild(0).localRotation = Quaternion.Euler(
                     Random.value > .5 ? 180 : 0, 0, -45);
+                CameraFollow.Instance.Shake(.25f);
             }
         }
 
