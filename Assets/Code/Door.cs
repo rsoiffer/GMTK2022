@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
 
     private IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
         while (!WorldGen.Instance.AllEnemiesDead)
         {
             yield return new WaitForEndOfFrame();
