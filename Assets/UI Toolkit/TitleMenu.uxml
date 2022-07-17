@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; align-items: stretch;">
-        <ui:VisualElement style="align-items: flex-end;">
+        <ui:VisualElement style="align-items: flex-end; visibility: hidden;">
             <ui:Button tabindex="-1" text="Quit" display-tooltip-when-elided="true" name="QuitButton" style="width: 60px; height: 60px; -unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=c55f79a4bdb108149b83570a5b19f6ad&amp;type=3#NotInter-Regular&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
