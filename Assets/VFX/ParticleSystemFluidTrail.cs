@@ -6,7 +6,7 @@ public class ParticleSystemFluidTrail : MonoBehaviour
 {
     public ParticleSystem ps;
     public int numOfLineRenderers = 20;
-    private LineRenderer[] lrArray;
+    private TrailRenderer[] trailArray;
     public Transform lrGroupTransform;
     public List<int> ribbonBreaks;
     public float maxParticleRibbonBreakDistance = 1f;
@@ -16,13 +16,14 @@ public class ParticleSystemFluidTrail : MonoBehaviour
     {
         ribbonBreaks = new List<int>();
 
-        lrArray = new LineRenderer[20];
-        lrArray[0] = lrGroupTransform.GetComponentInChildren<LineRenderer>();
-        for (int i = 1; i < lrArray.Length; i++)
+        trailArray = new TrailRenderer[20];
+        trailArray[0] = lrGroupTransform.GetComponentInChildren<TrailRenderer>();
+        trailArray[0].emitting = false;
+        for (int i = 1; i < trailArray.Length; i++)
         {
-            lrArray[i] = Instantiate(lrArray[0]);
-            lrArray[i].transform.parent = lrGroupTransform;
-            lrArray[i].useWorldSpace = true;
+            trailArray[i] = Instantiate(trailArray[0]);
+            trailArray[i].transform.parent = lrGroupTransform;
+            trailArray[i].emitting = false;
         }
     }
 
@@ -47,32 +48,28 @@ public class ParticleSystemFluidTrail : MonoBehaviour
         }
         ribbonBreaks.Add(particles.Length);
 
-        Debug.Log(string.Join(", ", ribbonBreaks));
+        //Debug.Log(string.Join(", ", ribbonBreaks));
 
         // Update the line renders to display the particle ribbons, and render breaks when adjacent particles get too far apart
-        for (int i = 0; i < ribbonBreaks.Count && i < lrArray.Length; i++)
+        for (int i = 0; i < ribbonBreaks.Count && i < trailArray.Length; i++)
         {
             int rangeStartIdx = (i == 0) ? 0 : ribbonBreaks[i - 1];
             int rangeLength = ribbonBreaks[i] - rangeStartIdx;
-            Debug.Log(string.Format("{0} --> {1}", rangeStartIdx, rangeStartIdx + rangeLength));
+            //Debug.Log(string.Format("{0} --> {1}", rangeStartIdx, rangeStartIdx + rangeLength));
             Vector3[] tempPositions = new Vector3[rangeLength];
             System.Array.Copy(positions, rangeStartIdx, tempPositions, 0, rangeLength);
 
-            lrArray[i].positionCount = rangeLength;
-            lrArray[i].SetPositions(tempPositions);
+            trailArray[i].Clear();
+            trailArray[i].AddPositions(tempPositions);
+            //trailArray[i].SetPositions(tempPositions);
         }
 
         // Make sure only updated line renders are visible
-        for (int i = 1; i < lrArray.Length; i++)
+        for (int i = 1; i < trailArray.Length; i++)
         {
             bool isUsed = i <= ribbonBreaks.Count;
-            lrArray[i].gameObject.SetActive(isUsed);
+            trailArray[i].gameObject.SetActive(isUsed);
         }
-
-
-
-
-
 
     }
 }
