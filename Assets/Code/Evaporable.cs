@@ -8,7 +8,7 @@ public class Evaporable : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Air Element"))
+        if (col.gameObject.CompareTag("Air Element") || col.gameObject.CompareTag("Fire Element"))
         {
             evaporationTime -= Time.deltaTime;            
             if (evaporationTime < 0)
