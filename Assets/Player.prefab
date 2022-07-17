@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 2328480859222799070}
   m_Layer: 7
   m_Name: Damage Area
-  m_TagString: Untagged
+  m_TagString: Water Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 7042742659235873834}
   m_Layer: 7
   m_Name: Damage Area
-  m_TagString: Untagged
+  m_TagString: Air Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,6 +717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterStreamParticles: {fileID: 374605748282371501}
   waterStreamDamageArea: {fileID: 7745703571783447517}
+  water: {fileID: 0}
+  puddleSpawnInterval: 1
+  puddleSpawnDistance: 2
 --- !u!1001 &4135483010321609236
 PrefabInstance:
   m_ObjectHideFlags: 0
