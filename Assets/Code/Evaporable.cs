@@ -7,9 +7,12 @@ public class Evaporable : MonoBehaviour
     private void OnTriggerStay2D(Collider2D col)
     {
         var tags = col.gameObject.GetComponent<ElementTags>();
-        if (tags == null) return;
+        if (tags == null) return;        
 
-        var evaporationPower = tags.air ? 1 : 0 + tags.fire;
+        var evaporationPower = 
+            (tags.air ? 1 : 0)
+            + ((tags.earth && col.gameObject.CompareTag("Dirt")) ? 1 : 0)
+            + tags.fire;
         evaporationTime -= Time.deltaTime * evaporationPower;
         if (evaporationTime < 0)
         {
