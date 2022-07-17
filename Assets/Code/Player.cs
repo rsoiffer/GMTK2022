@@ -63,11 +63,10 @@ public class Player : MonoBehaviour
     public void InvFrames()
     {
         //Temporarily disable health for a few seconds, flash the player sprite in and out
-        float currentPlayerHealth = playerHealth.getCurrentHealth();
+        playerHealth.enabled = false;
         float timer = 3f;
         while (timer > 0.1f)
         {
-            playerHealth.setHealth(currentPlayerHealth);
             if (currentPlayerSpriteTexture != flashTexture)
             {
                 currentPlayerSpriteTexture = flashTexture;
@@ -77,8 +76,11 @@ public class Player : MonoBehaviour
             {
                 currentPlayerSpriteTexture = playerSpriteTexture;
             }
-            
+
             timer -= Time.deltaTime;
+            Debug.Log("TIMER = " + timer);
         }
+
+        playerHealth.enabled = true;
     }
 }
