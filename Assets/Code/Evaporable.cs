@@ -1,20 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Evaporable : MonoBehaviour
 {
     public float evaporationTime = 1;
-    
+
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Air Element") || col.gameObject.CompareTag("Fire Element"))
+        var tags = col.gameObject.GetComponent<ElementTags>();
+        if (tags == null) return;
+
+        var evaporationPower = tags.air ? 1 : 0 + tags.fire;
+        evaporationTime -= Time.deltaTime * evaporationPower;
+        if (evaporationTime < 0)
         {
-            evaporationTime -= Time.deltaTime;            
-            if (evaporationTime < 0)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

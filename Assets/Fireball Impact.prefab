@@ -58,9 +58,10 @@ GameObject:
   - component: {fileID: 1441469340252958640}
   - component: {fileID: 7064740651637266175}
   - component: {fileID: 6469318120916112616}
+  - component: {fileID: 3021386734928091981}
   m_Layer: 9
   m_Name: Fire Spreader
-  m_TagString: Fire Element
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0.5
+--- !u!114 &3021386734928091981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7888185771605615006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af601afab45e410193b0ca7f4ab1368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: 1
+  earth: 0
+  water: 0
+  air: 0
 --- !u!1001 &3300149763751374897
 PrefabInstance:
   m_ObjectHideFlags: 0
