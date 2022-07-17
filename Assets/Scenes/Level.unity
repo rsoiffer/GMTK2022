@@ -159,12 +159,15 @@ MonoBehaviour:
   grass: {fileID: 537806512226338189, guid: 6a884e98f60f8ff4b85aeca3f0b419ef, type: 3}
   pebble: {fileID: 6357149376674065373, guid: 2b61de09aae9a5e449a7b8e4dd760fcb, type: 3}
   door: {fileID: 6357149376674065373, guid: 50858c5f881da0847a037fc6710eac3a, type: 3}
-  enemy: {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
+  enemy:
+  - {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
+  - {fileID: 537806512226338189, guid: 9d0a098756360344082e2cb9de1a0cad, type: 3}
   width: 100
   height: 100
   treeChance: 0.1
   treeChanceIncrease: 0.05
   grassChance: 0.5
+  pebbleChance: 0.01
   numEnemies: 1
   numExtraEnemiesPerLevel: 1
 --- !u!4 &177137668
