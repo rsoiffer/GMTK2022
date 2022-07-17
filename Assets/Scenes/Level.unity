@@ -939,6 +939,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNum: 0
+  upgradeFire1: 0
+  upgradeFire2: 0
+  upgradeFire3: 0
+  upgradeFire4: 0
 --- !u!4 &1816735972
 Transform:
   m_ObjectHideFlags: 0

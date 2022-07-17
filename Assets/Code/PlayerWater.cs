@@ -2,13 +2,17 @@
 
 public class PlayerWater : MonoBehaviour
 {
+    public GameObject icicle;
+
     public GameObject waterStreamParticles;
     public GameObject waterStreamDamageArea;
     public GameObject waterPuddle;
     public float puddleSpawnInterval = 1f;
     public float puddleSpawnDistance = 2f;
-    
+    public float minStreamTime = .2f;
+
     private float lastPuddleTime;
+    private float lastMouseDownTime;
 
     private Vector2 ToMouse()
     {
@@ -19,12 +23,33 @@ public class PlayerWater : MonoBehaviour
 
     private void Update()
     {
-        var waterStreamActive = Input.GetMouseButton(0);
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastPuddleTime = Time.time;
+            lastMouseDownTime = Time.time;
+        }
 
-        waterStreamParticles.transform.rotation = Quaternion.Euler(0, 0,
-            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
-        waterStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
-            Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+        if (Input.GetMouseButton(0))
+        {
+            waterStreamParticles.transform.rotation = Quaternion.Euler(0, 0,
+                Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+            waterStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
+                Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (Time.time < lastMouseDownTime + minStreamTime)
+            {
+                // Icicle
+                var newIcicle = Instantiate(icicle);
+                newIcicle.transform.position = transform.position;
+                newIcicle.transform.rotation = Quaternion.Euler(0, 0,
+                    Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+            }
+        }
+
+        var waterStreamActive = Input.GetMouseButton(0) && Time.time > lastMouseDownTime + minStreamTime;
 
         waterStreamDamageArea.SetActive(waterStreamActive);
         foreach (var particles in waterStreamParticles.GetComponentsInChildren<ParticleSystem>())
@@ -32,11 +57,7 @@ public class PlayerWater : MonoBehaviour
             var emission = particles.emission;
             emission.enabled = waterStreamActive;
         }
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            lastPuddleTime = Time.time;
-        }
+
         if (waterStreamActive && Time.time > lastPuddleTime + puddleSpawnInterval)
         {
             lastPuddleTime = Time.time;

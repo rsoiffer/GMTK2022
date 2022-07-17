@@ -809,11 +809,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d83a8aad9b44bddbdeb93fbd806df2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icicle: {fileID: 6604044630476901888, guid: 24a6e3f4e8d7c7642b9ab07c6c3f6b2b, type: 3}
   waterStreamParticles: {fileID: 374605748282371501}
   waterStreamDamageArea: {fileID: 7745703571783447517}
   waterPuddle: {fileID: 6357149376674065373, guid: 264b0a792ae6d7e4a97554258d9101f4, type: 3}
   puddleSpawnInterval: 1
   puddleSpawnDistance: 2
+  minStreamTime: 0.2
 --- !u!1001 &4135483010321609236
 PrefabInstance:
   m_ObjectHideFlags: 0

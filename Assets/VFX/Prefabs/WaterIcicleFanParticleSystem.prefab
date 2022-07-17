@@ -9650,9 +9650,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6558672236950492763}
     m_Modifications:
+    - target: {fileID: 2745301509639933893, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796552617293372, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8185796552617293372, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796553658371153, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8185796553658371155, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
       propertyPath: m_RootOrder
@@ -9718,6 +9730,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6558672236950492763}
     m_Modifications:
+    - target: {fileID: 2745301509639933893, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796552617293372, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796553658371153, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8185796553658371153, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
       value: 0.1
@@ -9786,6 +9810,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6558672236950492763}
     m_Modifications:
+    - target: {fileID: 2745301509639933893, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796552617293372, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185796553658371153, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8185796553658371153, guid: 8c410b9a65dea9b49a60bc5050c2b1f7, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
       value: 0
