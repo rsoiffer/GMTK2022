@@ -10,6 +10,7 @@ public class PlayerEarth : MonoBehaviour
     public GameObject block;
     public float blockMinRange, blockMaxRange;
     public float minBlockTime = .2f;
+    public GameObject blockTargetingParticles;
 
     private float lastMouseDownTime;
 
@@ -20,11 +21,31 @@ public class PlayerEarth : MonoBehaviour
         return toMouse;
     }
 
+    private Vector2 BlockTargetPos()
+    {
+        var toMouse = ToMouse();
+        if (toMouse.magnitude < blockMinRange)
+        {
+            toMouse = toMouse.normalized * blockMinRange;
+        }
+        else if (toMouse.magnitude > blockMaxRange)
+        {
+            toMouse = toMouse.normalized * blockMaxRange;
+        }
+
+        return (Vector2)transform.position + toMouse;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             lastMouseDownTime = Time.time;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            blockTargetingParticles.transform.position = BlockTargetPos();
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -41,18 +62,15 @@ public class PlayerEarth : MonoBehaviour
             {
                 // Block
                 var newBlock = Instantiate(block);
-                var toMouse = ToMouse();
-                if (toMouse.magnitude < blockMinRange)
-                {
-                    toMouse = toMouse.normalized * blockMinRange;
-                }
-                else if (toMouse.magnitude > blockMaxRange)
-                {
-                    toMouse = toMouse.normalized * blockMaxRange;
-                }
-
-                newBlock.transform.position = transform.position + (Vector3)toMouse;
+                newBlock.transform.position = BlockTargetPos();
             }
+        }
+
+        var targetingBlock = Input.GetMouseButton(0) && Time.time > lastMouseDownTime + minBlockTime;
+        foreach (var particles in blockTargetingParticles.GetComponentsInChildren<ParticleSystem>())
+        {
+            var emission = particles.emission;
+            emission.enabled = targetingBlock;
         }
     }
 }
