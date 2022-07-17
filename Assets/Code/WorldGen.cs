@@ -8,10 +8,8 @@ public class WorldGen : MonoBehaviour
     [Header("Prefabs")] public GameObject player;
     public GameObject wall, water;
     public GameObject tree, grass, pebble;
-    public GameObject door;
     public GameObject empty;
     public GameObject[] enemy;
-    private int enemyPrefabCount;
 
     [Header("Generation Settings")] public int width = 20;
     public int height = 20;
@@ -21,6 +19,7 @@ public class WorldGen : MonoBehaviour
     public float pebbleChance = .01f;
     public int numEnemies = 10;
     public int numExtraEnemiesPerLevel = 5;
+    public float minEnemyDistToPlayer = 10;
 
     private GameObject[,] tiles;
     private List<GameObject> allEnemies = new();
@@ -30,7 +29,6 @@ public class WorldGen : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        enemyPrefabCount = enemy.Length;
         int seed = Random.Range(0, 1000);
 
         tiles = new GameObject[width + 1, height + 1];
@@ -92,16 +90,27 @@ public class WorldGen : MonoBehaviour
             }
         }
 
-        while (!TrySpawn(player, Random.Range(1, width), Random.Range(1, height))) ;
+        int playerX, playerY;
+        while (true)
+        {
+            playerX = Random.Range(1, width);
+            playerY = Random.Range(1, height);
+            if (TrySpawn(player, playerX, playerY)) break;
+        }
+
         // while (!TrySpawn(door, Random.Range(1, width), Random.Range(1, height))) ;
         var currentNumEnemies = numEnemies + numExtraEnemiesPerLevel * LevelManager.Instance.levelNum;
         for (int i = 0; i < currentNumEnemies; i++)
         {
-            int enemy_num = Random.Range(0, enemyPrefabCount);
+            var enemyId = Random.Range(0, enemy.Length);
             GameObject newEnemy = null;
             while (newEnemy == null)
             {
-                newEnemy = TrySpawn(enemy[enemy_num], Random.Range(1, width), Random.Range(1, height));
+                var enemyX = Random.Range(1, width);
+                var enemyY = Random.Range(1, height);
+                var distToPlayer =
+                    Mathf.Sqrt((playerX - enemyX) * (playerX - enemyX) + (playerY - enemyY) * (playerY - enemyY));
+                if (distToPlayer > minEnemyDistToPlayer) newEnemy = TrySpawn(enemy[enemyId], enemyX, enemyY);
             }
 
             allEnemies.Add(newEnemy);

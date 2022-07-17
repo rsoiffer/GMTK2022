@@ -158,7 +158,6 @@ MonoBehaviour:
   tree: {fileID: 537806512226338189, guid: 9a5d6ee239f0b1c4fb091fb210693dc7, type: 3}
   grass: {fileID: 537806512226338189, guid: 6a884e98f60f8ff4b85aeca3f0b419ef, type: 3}
   pebble: {fileID: 6357149376674065373, guid: 2b61de09aae9a5e449a7b8e4dd760fcb, type: 3}
-  door: {fileID: 6357149376674065373, guid: 50858c5f881da0847a037fc6710eac3a, type: 3}
   empty: {fileID: 258952749049412076, guid: 5a02502c73842f9479660179806e8e9b, type: 3}
   enemy:
   - {fileID: 537806512226338189, guid: b3ef17eaa75111249ad5789f0076a28f, type: 3}
@@ -171,6 +170,7 @@ MonoBehaviour:
   pebbleChance: 0.01
   numEnemies: 1
   numExtraEnemiesPerLevel: 2
+  minEnemyDistToPlayer: 10
 --- !u!4 &177137668
 Transform:
   m_ObjectHideFlags: 0
