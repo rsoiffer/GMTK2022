@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+    
     public float targetSpeed;
     public float accelRate;
 
@@ -13,6 +15,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 

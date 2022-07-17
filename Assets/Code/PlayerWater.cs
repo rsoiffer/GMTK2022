@@ -4,7 +4,7 @@ public class PlayerWater : MonoBehaviour
 {
     public GameObject waterStreamParticles;
     public GameObject waterStreamDamageArea;
-    public GameObject water;
+    public GameObject waterPuddle;
     public float puddleSpawnInterval = 1f;
     public float puddleSpawnDistance = 2f;
     
@@ -40,7 +40,7 @@ public class PlayerWater : MonoBehaviour
         if (waterStreamActive && Time.time > lastPuddleTime + puddleSpawnInterval)
         {
             lastPuddleTime = Time.time;
-            var newPuddle = Instantiate(water);
+            var newPuddle = Instantiate(waterPuddle);
             newPuddle.transform.position = transform.position + (Vector3)ToMouse().normalized * puddleSpawnDistance;
         }
     }
