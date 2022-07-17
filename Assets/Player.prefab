@@ -697,6 +697,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterStreamParticles: {fileID: 374605748282371501}
   waterStreamDamageArea: {fileID: 7745703571783447517}
+  water: {fileID: 6357149376674065373, guid: af32ef3f2a5382d4fa0b5e3a0350fba5, type: 3}
+  puddleSpawnInterval: 1
 --- !u!1001 &5105238311197520689
 PrefabInstance:
   m_ObjectHideFlags: 0
