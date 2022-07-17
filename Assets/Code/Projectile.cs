@@ -7,9 +7,12 @@ public class Projectile : MonoBehaviour
     public GameObject detachOnDeath;
     public float detachLifetime;
 
+    public float shakeOnHit;
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         Destroy(gameObject);
+        CameraFollow.Instance.Shake(shakeOnHit);
 
         if (detachOnDeath != null)
         {
