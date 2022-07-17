@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: stretch;">
+        <ui:VisualElement style="align-items: flex-end;">
+            <ui:Button tabindex="-1" text="Quit" display-tooltip-when-elided="true" name="QuitButton" style="width: 60px; height: 60px; -unity-font-style: normal; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/comicbd%20SDF.asset?fileID=11400000&amp;guid=901af089ea667b34592d71cb61969310&amp;type=2#comicbd SDF&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+            <ui:Label tabindex="-1" text="Elements ~2D Edition~" display-tooltip-when-elided="true" style="-unity-font-style: normal; font-size: 58px; letter-spacing: 5px; color: rgb(255, 255, 255); text-shadow: 0 0 5px rgb(0, 0, 0); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/comicbd%20SDF.asset?fileID=11400000&amp;guid=901af089ea667b34592d71cb61969310&amp;type=2#comicbd SDF&apos;); -unity-text-outline-width: 1.5px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            <ui:Label tabindex="-1" text="GMTK 2022 Game Jam" display-tooltip-when-elided="true" style="font-size: 32px; -unity-font-style: bold-and-italic; color: rgb(255, 255, 255); text-shadow: 0 0 3px rgb(0, 0, 0); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/comici%20SDF.asset?fileID=11400000&amp;guid=d06a4ff130f72734291d7c7f8a70a635&amp;type=2#comici SDF&apos;); -unity-text-outline-width: 1.5px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            <ui:Button tabindex="-1" text="Play" display-tooltip-when-elided="true" name="PlayButton" style="width: 25%; -unity-font-style: normal; font-size: 32px; margin-top: 50px; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/comicbd%20SDF.asset?fileID=11400000&amp;guid=901af089ea667b34592d71cb61969310&amp;type=2#comicbd SDF&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="align-items: flex-end; -unity-font: url(&apos;project://database/Assets/UI/Fonts/comicbd.ttf?fileID=12800000&amp;guid=2411e9f6e82654040997bf9ee2ecd01c&amp;type=3#comicbd&apos;); -unity-font-style: bold; font-size: 32px;">
+            <ui:Button tabindex="-1" text="Mute" display-tooltip-when-elided="true" name="MuteButton" style="width: 60px; height: 60px; font-size: 14px; -unity-font: none; -unity-font-style: normal; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/comicbd%20SDF.asset?fileID=11400000&amp;guid=901af089ea667b34592d71cb61969310&amp;type=2#comicbd SDF&apos;);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

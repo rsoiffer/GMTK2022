@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
-    
+
     public float targetSpeed;
     public float accelRate;
 
@@ -13,10 +13,26 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D myRigidbody2D;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            return;
+        }
+
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+        Instance = this;
+        transform.parent = null;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        Instance = this;
-        myRigidbody2D = GetComponent<Rigidbody2D>();
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+            Instance.transform.position = transform.position;
+        }
     }
 
     private void Update()

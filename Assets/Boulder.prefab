@@ -140,6 +140,8 @@ MonoBehaviour:
   damage: 1
   detachOnDeath: {fileID: 0}
   detachLifetime: 5
+  spawnOnDeath: {fileID: 5579443807443714152, guid: 8f9410b71d9b4f74a96211f26c85b5f5, type: 3}
+  shakeOnHit: 0.5
 --- !u!1 &5075186539742167891
 GameObject:
   m_ObjectHideFlags: 0
