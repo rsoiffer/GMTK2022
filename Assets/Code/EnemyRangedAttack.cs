@@ -18,6 +18,7 @@ public class EnemyRangedAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.Instance == null) return;
         if ((Player.Instance.transform.position - transform.position).magnitude < playerDistance)
         {
             if (isRunning == false)

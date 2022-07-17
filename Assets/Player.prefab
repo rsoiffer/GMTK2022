@@ -510,7 +510,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4297562115695396555}
   - component: {fileID: 1438530049042024525}
-  - component: {fileID: 2328480859222799070}
   - component: {fileID: 2276646585963020571}
   m_Layer: 7
   m_Name: Damage Area
@@ -566,20 +565,6 @@ PolygonCollider2D:
       - {x: 9.102702, y: -0.0048621297}
       - {x: 8.999885, y: 0.29901016}
   m_UseDelaunayMesh: 0
---- !u!114 &2328480859222799070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7745703571783447517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab9c3d56249ef74894f0a78ce28cb07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerSecond: 2
-  knockbackForce: 10
 --- !u!114 &2276646585963020571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,6 +1040,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6727492492835194045}
     m_Modifications:
+    - target: {fileID: 6305197489702469133, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305197489702469133, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305197489702469133, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305197489702469133, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 2049
+      objectReference: {fileID: 0}
     - target: {fileID: 6305197489968719076, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1081,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6305197489968719076, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6305197489968719076, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1118,6 +1119,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+--- !u!1 &374605748012054344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6305197489702469120, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}
+  m_PrefabInstance: {fileID: 5958915711282022728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &361154260495642784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374605748012054344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b747b4a43657498fbc2255974741a31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.01
+  shakeOnHit: 0.01
+  impulseOnHit: 0.5
 --- !u!4 &374605748282371500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6305197489968719076, guid: a823b9e226395d6478ee38fe1fec0350, type: 3}

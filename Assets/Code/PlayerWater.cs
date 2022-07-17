@@ -35,6 +35,14 @@ public class PlayerWater : MonoBehaviour
                 Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
             waterStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
                 Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+
+            var waterCallback = waterStreamParticles.GetComponentInChildren<WaterCallback>();
+            waterCallback.damage = .01f * (1 + LevelManager.Instance.upgradeWater3);
+            var main = waterCallback.GetComponent<ParticleSystem>().main;
+            main.startSpeedMultiplier = 20 * (1 + LevelManager.Instance.upgradeWater3);
+
+            waterCallback.shakeOnHit = .01f * (1 + LevelManager.Instance.upgradeWater4);
+            waterCallback.impulseOnHit = .5f * (1 + LevelManager.Instance.upgradeWater4);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -42,10 +50,14 @@ public class PlayerWater : MonoBehaviour
             if (Time.time < lastMouseDownTime + minStreamTime)
             {
                 // Icicle
-                var newIcicle = Instantiate(icicle);
-                newIcicle.transform.position = transform.position;
-                newIcicle.transform.rotation = Quaternion.Euler(0, 0,
-                    Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+                for (int i = 0; i < 1 + LevelManager.Instance.upgradeWater1; i++)
+                {
+                    var newIcicle = Instantiate(icicle);
+                    newIcicle.transform.position = transform.position;
+                    newIcicle.transform.rotation = Quaternion.Euler(0, 0,
+                        Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+                    newIcicle.transform.localScale *= 1 + LevelManager.Instance.upgradeWater2;
+                }
             }
         }
 

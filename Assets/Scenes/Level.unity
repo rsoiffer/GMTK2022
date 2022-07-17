@@ -291,6 +291,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 67500ed3b372efa4b81e555703edd770, type: 3}
   - {fileID: 21300000, guid: da949750b716104449ffa2c5d5495de6, type: 3}
   - {fileID: 21300000, guid: a595937fcd4c91e428df4d00b7c914a0, type: 3}
+  - {fileID: 21300000, guid: 573c8a597e1e6534e88fc34d7a2617dd, type: 3}
+  - {fileID: 21300000, guid: 32cce9b12be342b439e1a5a033aa194f, type: 3}
+  - {fileID: 21300000, guid: ea7be1926b92f1d4b960f95bfc54c553, type: 3}
+  - {fileID: 21300000, guid: 263459a2bd7117a4c97dd5a7a1231e8e, type: 3}
   shake: 1
 --- !u!61 &389565345
 BoxCollider2D:

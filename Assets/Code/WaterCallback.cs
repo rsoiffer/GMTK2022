@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IcicleCallback : MonoBehaviour
+public class WaterCallback : MonoBehaviour
 {
-    public float minAngle, maxAngle;
-
     public float damage;
     public float shakeOnHit;
+    public float impulseOnHit;
 
     private ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents = new();
@@ -14,7 +13,6 @@ public class IcicleCallback : MonoBehaviour
     private void Start()
     {
         part = GetComponent<ParticleSystem>();
-        transform.localRotation = Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle));
     }
 
     private void OnParticleCollision(GameObject other)
@@ -27,6 +25,13 @@ public class IcicleCallback : MonoBehaviour
         if (otherHealth != null)
         {
             otherHealth.TakeDamage(damage * numCollisionEvents);
+        }
+
+        var otherRigidbody = other.GetComponent<Rigidbody2D>();
+        if (otherRigidbody != null)
+        {
+            var toOther = otherRigidbody.worldCenterOfMass - (Vector2)transform.position;
+            otherRigidbody.AddForce(impulseOnHit * toOther.normalized, ForceMode2D.Impulse);
         }
     }
 }
