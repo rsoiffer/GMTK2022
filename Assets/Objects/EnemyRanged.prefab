@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830363295060935545}
-  - component: {fileID: -8048405554857216387}
   - component: {fileID: 3359855857686506413}
   - component: {fileID: 2135840301508749207}
   - component: {fileID: -1979260710016950413}
@@ -17,8 +16,9 @@ GameObject:
   - component: {fileID: 8742922628333394899}
   - component: {fileID: 6113247661818803798}
   - component: {fileID: 4157852216645809838}
+  - component: {fileID: -5686972860184456276}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: EnemyRanged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,19 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8048405554857216387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537806512226338189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3294d27fd11433240aab739dcbfad9f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
 --- !u!212 &3359855857686506413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -95,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19fa5c10a7d6b0941aaa06631a51a1db, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 589996a7b2bf79e4db053a879c10c062, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.996243, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,8 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 19fa5c10a7d6b0941aaa06631a51a1db, type: 3}
-  - {fileID: 21300000, guid: c10db7969dedf3a4bb0d3b3c66c06ed5, type: 3}
+  - {fileID: 21300000, guid: 589996a7b2bf79e4db053a879c10c062, type: 3}
+  - {fileID: 21300000, guid: cfd8a0cb80e83f04cb78633ca841f446, type: 3}
   animDelay: 0.5
 --- !u!50 &1034332107091540563
 Rigidbody2D:
@@ -173,7 +160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   invincibilityTime: 0
-  shakeOnDamage: 0
 --- !u!114 &6113247661818803798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,8 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  accelRate: 10
-  distanceToPlayer: 0
+  distanceToPlayer: 5
 --- !u!114 &4157852216645809838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +189,24 @@ MonoBehaviour:
   fireParticles: {fileID: 5897680970095184604}
   fireSpreader: {fileID: 871342782675690261}
   catchFireRate: 10
+  spreadFireChance: 0.1
   maxFireDuration: 5
   fireDPS: 0.5
+--- !u!114 &-5686972860184456276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537806512226338189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e315f7c55d381145a5fcb5ab9842b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball: {fileID: -3827367656520432887, guid: 64a975e1afdc4804187c0657d8ea6560, type: 3}
+  playerDistance: 10
+  shootSpeed: 7
 --- !u!1 &871342782675690261
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,10 +218,9 @@ GameObject:
   - component: {fileID: 3146328261117119123}
   - component: {fileID: 2234652257971365917}
   - component: {fileID: 7763862649848734724}
-  - component: {fileID: 3557489891405957026}
   m_Layer: 11
   m_Name: Fire Spreader
-  m_TagString: Untagged
+  m_TagString: Fire Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,22 +277,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3557489891405957026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871342782675690261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af601afab45e410193b0ca7f4ab1368e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: 0.01
-  earth: 0
-  water: 0
-  air: 0
 --- !u!1001 &2106282772884092956
 PrefabInstance:
   m_ObjectHideFlags: 0
