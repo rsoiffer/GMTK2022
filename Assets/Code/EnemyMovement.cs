@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player == null) return;
         
-        direction = (Vector2)player.transform.position - enemyRigidbody.position;
+        direction = (Vector2)player.transform.position - myRigidbody2D.position;
 
         if (direction.magnitude > distanceToPlayer)
         {
