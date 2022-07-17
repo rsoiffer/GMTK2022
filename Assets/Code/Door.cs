@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = openSprite;
+        GetComponent<AudioSource>().Play();
         unlocked = true;
     }
 
