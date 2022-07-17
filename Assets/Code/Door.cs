@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -6,13 +5,8 @@ public class Door : MonoBehaviour
     public Sprite openSprite;
     private bool unlocked;
 
-    private IEnumerator Start()
+    public void Unlock()
     {
-        while (!WorldGen.Instance.AllEnemiesDead)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = openSprite;
         unlocked = true;

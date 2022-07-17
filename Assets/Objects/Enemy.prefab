@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8742922628333394899}
   - component: {fileID: 6113247661818803798}
   - component: {fileID: 4157852216645809838}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,8 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19cd4b14526c0e4e962f04c5dcd2c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  accelRate: 5
+  moveSpeed: 2
+  accelRate: 10
+  distanceToPlayer: 0
 --- !u!114 &4157852216645809838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ GameObject:
   - component: {fileID: 2234652257971365917}
   - component: {fileID: 7763862649848734724}
   - component: {fileID: 3557489891405957026}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Fire Spreader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,9 +301,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1830363295060935545}
     m_Modifications:
+    - target: {fileID: 1958064333, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540483749565965531, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540483750024090295, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_Name
       value: Fire Burning Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540483751154102976, guid: ed6faac24b56778419dca1ec16a90583, type: 3}
       propertyPath: m_IsActive

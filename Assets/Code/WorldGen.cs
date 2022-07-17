@@ -9,7 +9,9 @@ public class WorldGen : MonoBehaviour
     public GameObject wall, water;
     public GameObject tree, grass, pebble;
     public GameObject door;
-    public GameObject enemy;
+    public GameObject empty;
+    public GameObject[] enemy;
+    private int enemyPrefabCount;
 
     [Header("Generation Settings")] public int width = 20;
     public int height = 20;
@@ -28,6 +30,7 @@ public class WorldGen : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        enemyPrefabCount = enemy.Length;
         int seed = Random.Range(0, 1000);
 
         tiles = new GameObject[width + 1, height + 1];
@@ -41,6 +44,14 @@ public class WorldGen : MonoBehaviour
         {
             TrySpawn(wall, 0, y);
             TrySpawn(wall, width, y);
+        }
+
+        for (int x = 48; x <= 52; x++)
+        {
+            for (int y = 48; y <= 52; y++)
+            {
+                TrySpawn(empty, x, y);
+            }
         }
 
         for (int x = 1; x < width; x++)
@@ -82,14 +93,15 @@ public class WorldGen : MonoBehaviour
         }
 
         while (!TrySpawn(player, Random.Range(1, width), Random.Range(1, height))) ;
-        while (!TrySpawn(door, Random.Range(1, width), Random.Range(1, height))) ;
+        // while (!TrySpawn(door, Random.Range(1, width), Random.Range(1, height))) ;
         var currentNumEnemies = numEnemies + numExtraEnemiesPerLevel * LevelManager.Instance.levelNum;
         for (int i = 0; i < currentNumEnemies; i++)
         {
+            int enemy_num = Random.Range(0, enemyPrefabCount);
             GameObject newEnemy = null;
             while (newEnemy == null)
             {
-                newEnemy = TrySpawn(enemy, Random.Range(1, width), Random.Range(1, height));
+                newEnemy = TrySpawn(enemy[enemy_num], Random.Range(1, width), Random.Range(1, height));
             }
 
             allEnemies.Add(newEnemy);

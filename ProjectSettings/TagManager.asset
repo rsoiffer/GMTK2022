@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dirt
+  - Rock
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Player
   - Ground Obstacle
   - Player Projectile
-  - 
-  - 
+  - Enemy Projectile
+  - Enemy
   - 
   - 
   - 

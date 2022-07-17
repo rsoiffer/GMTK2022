@@ -37,6 +37,14 @@ public class PlayerFire : MonoBehaviour
                     Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
                 fireStreamDamageArea.transform.rotation = Quaternion.Euler(0, 0,
                     Mathf.Rad2Deg * Mathf.Atan2(ToMouse().y, ToMouse().x));
+
+                fireStreamDamageArea.GetComponentInChildren<DamageArea>().damagePerSecond =
+                    2 * (1 + LevelManager.Instance.upgradeFire3);
+                fireStreamDamageArea.GetComponentInChildren<ElementTags>().fire =
+                    1 + LevelManager.Instance.upgradeFire3;
+
+                fireStreamParticles.transform.localScale = Vector3.one * .4f * (1 + LevelManager.Instance.upgradeFire4);
+                fireStreamDamageArea.transform.localScale = Vector3.one * (1 + LevelManager.Instance.upgradeFire4);
             }
         }
 
@@ -48,6 +56,10 @@ public class PlayerFire : MonoBehaviour
                 var newFireball = Instantiate(fireball);
                 newFireball.transform.position = transform.position;
                 newFireball.GetComponent<Rigidbody2D>().velocity = shootSpeed * ToMouse().normalized;
+
+                newFireball.GetComponent<Rigidbody2D>().velocity *= 1 + LevelManager.Instance.upgradeFire1;
+                newFireball.GetComponent<Projectile>().damage *= 1 + LevelManager.Instance.upgradeFire1;
+                newFireball.GetComponent<Projectile>().shakeOnHit *= 1 + LevelManager.Instance.upgradeFire2;
             }
         }
 
